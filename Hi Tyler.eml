@@ -1,0 +1,108 @@
+Delivered-To: zebraman@gmail.com
+Received: by 2002:a05:7000:c58b:b0:7b1:5607:6143 with SMTP id jy11csp731784mab;
+        Thu, 18 Dec 2025 15:52:14 -0800 (PST)
+X-Received: by 2002:a05:6102:5798:b0:5e1:866c:4f8d with SMTP id ada2fe7eead31-5eb1a837fafmr292407137.40.1766101934277;
+        Thu, 18 Dec 2025 15:52:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1766101934; cv=none;
+        d=google.com; s=arc-20240605;
+        b=MJQPgWWU8rj7nQd2D0r+3HA9HVm3Qgfmv7oNx2qxQaD/I9N+BlSzMXRlQX0OEtkk8w
+         /vioMrA+5x8i6Y0e7NteFHNeSc5Y7+/iujO7nATM0TF9T6dbsCieWbwlrwr2Bf2wi0Dz
+         aV2yYtFrTFbXQtXSYRya8LbV09ULuVrldTlIFNCyLn/L13Bq0RJovDC7ZjGi1HRMoBmr
+         8b+0LlmuMvwyW9rKVeBZ7kluM9U9O5LRcYCFL+YOYWzFd1bZh5JKqaNBU0l3y67zvS+f
+         w7dvmGTnuRwKzFtofCtGWI2Wn1AboSOZQNbRbQljoFZtYXlXgfMXdGJ/m0yiQy5qQZsc
+         +gbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=SoZvGHltDOlCqrLs/7VysuDk1T3UnMnIW5d+t8/wdRo=;
+        fh=7PhbAWG0s+43eZigFXjibnEXLGR1ZaKQazvHTpBSPKA=;
+        b=KQ+iZ0EcB0CbUqyrGaXtfdY8rPMoNx/da3UmVvhdiUEwr0zykQ8bproqXQ+BOHJmrJ
+         M48U1/RQM1ax+hCFvx/Pvm2MdpwPOlYvO32niQONJeXPG9qxeU4X6aMvq5eeWLrMFzyC
+         4TWWUrhsqDycuu702HgU3qz+pajIQU8Tm73AcvzZOCM2ecNOzIAmQ2psyJ/kygkclN09
+         fkKS0aFmx+m3ocIIPqLvDmk4Kp1+4keoahE13pT+IBYV0HsWz1MsMvcPiwdT7dWFsS3E
+         ZbQcTbl8xqjzrjpA4Jth6XffpgbT+F6shZ5IK8njOWsuEdQPdEXNBChKwCr0gUYHElWm
+         RyVA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=HIjOk8yD;
+       spf=pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=anson.chen934@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <anson.chen934@gmail.com>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id ada2fe7eead31-5eb059a4b3csor359976137.9.2025.12.18.15.52.14
+        for <zebraman@gmail.com>
+        (Google Transport Security);
+        Thu, 18 Dec 2025 15:52:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=HIjOk8yD;
+       spf=pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=anson.chen934@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766101934; x=1766706734; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=SoZvGHltDOlCqrLs/7VysuDk1T3UnMnIW5d+t8/wdRo=;
+        b=HIjOk8yDSyyvNbdK5u+sBUhYNKmkPTiFRxHoL6p1qWjX98Xa4DEX0P3Kp/CoqtFX6d
+         KENDzTRp09WibCoi3ANzxw6mJZP2WWPaYae0CFQvjYi8KXdfCCyYu55QJwq3tu9+2Ibg
+         EIIg4Sigoe6hkypZ/HtPlKNA0kbeaERxPvOdpZsIXzuW/DJxGggI1DP52odUWNdeiyIu
+         r8AJqDj/uZbp/jN3YUG2l3QLu3GZyYVQ+8lZQDIyEx7p/iffjLCiXXZFnTg4RrdBadkd
+         uAc2jXGuaAhYru0G2CFr9dohHcbLg1BGMUqX0sMhlF0OEvRMhl381zY5yyo7CSRhD08A
+         bXrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766101934; x=1766706734;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SoZvGHltDOlCqrLs/7VysuDk1T3UnMnIW5d+t8/wdRo=;
+        b=mk3eeNUO0r/LM40nKNBpumpVQxD3MnyAx0xwm/s++afVtB/CGLcossJ2yA7wllxy5y
+         JsgKZYYgkOAkCIpz9vKvUD+8dUcVUhFCht0OS0Y5jc2Bggotk937or7oFsipD0jhLYPH
+         4sHQgxuV+mNiR5H/8EZzDODgS5yzrj9RbZmIgLr1UHY46hiE5XQi/016e/ie8pnhEw/X
+         dZrlgCSG8jVbWIUxRs5Tb5lx2CXg01Vq7psIekVDTn1P7ENKOqudvukq6pn95yKVI0hW
+         SLhnb+eRfleoMxanfTfpIezgtlln/yoK7RPqEDH9BflsX2QAxuY98YBGzK8X8Y7c4GMV
+         pSwg==
+X-Gm-Message-State: AOJu0YwvDcBFyigLDDrfhtwjgBcRIVIKDDm8XT3nR8J7L9nuN0q9jEre
+	aW88fo3NqWv6bhUq7GC/QkUV7iydfezCzKQTX/Ch2jyn+2iNM50khzQLVWtHZWIoUMxqY/rxSyf
+	iZIvdjkRz1inuVxLqJLqkXzNDLeMuaiHcYJaVcA8=
+X-Gm-Gg: AY/fxX7LdT9fh7PWPayzomP5AUhc+jUptEmbjczd3Yc4mS1PKp71vL3BRqWWM/EAYDX
+	4gA/0Mzpi3NnFwfmuttQC9npMR/LgoyQAAoJnGyJi4TDjGTfJncyuuLyRfDuVpF8wopsViaz3lI
+	pDfpkie5G+5okp2DvP4OMOCpI70eZCU2IP1nTfXzy5VW6KbfnANFRVLY+N4q03/urjSjnn6Aclk
+	8qVbbVKebn7VB3VQEo+JDsj3XYWmK/fYoffWz2z9tH0xNq4BOKSLu/FWvekOApobDiu4yEZKH5W
+	BplOEyIG8Y2ibmdNjkFSk/3aLOm3i6iiWtt3LG7f
+X-Google-Smtp-Source: AGHT+IHh1LJrLYdWQDX9U1vA2CnR/4vqhmFZTwdBntBZxyxXxYWbVvNsN1NuvUw74dJndZiRxVuvKjiZPpwdO7ErEGI=
+X-Received: by 2002:a05:6102:148d:b0:5df:8f4:61e6 with SMTP id
+ ada2fe7eead31-5eb1a8044f7mr339297137.32.1766101933757; Thu, 18 Dec 2025
+ 15:52:13 -0800 (PST)
+MIME-Version: 1.0
+From: Anson Chen <anson.chen934@gmail.com>
+Date: Thu, 18 Dec 2025 18:52:03 -0500
+X-Gm-Features: AQt7F2rpsMjRlWd1BzOxwDAyj9BnV-YFDrVlCzMGNb6s0p4aWstFUdNkFLjp7zw
+Message-ID: <CANDF-TpXVm1v_kPtu5HWd84AhN3W0gHJ3=-kq89WhYmRPs_nmQ@mail.gmail.com>
+Subject: Hi Tyler
+To: zebraman@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000006618e1064642a6d0"
+
+--0000000000006618e1064642a6d0
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Tyler
+This is "Andon"
+I'm just here to say happy holidays in advance
+Oh, and also, this is a reminder that a particular someone still owes you
+money and the interest is really making the values skyrocket
+I wonder what he's up to nowadays
+His caption project seems to be going swimmingly, aside from the mass swarm
+of tabs involved
+
+--0000000000006618e1064642a6d0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hi Tyler<br>This is &quot;Andon&quot;<div>I&#39;m just her=
+e to say happy holidays in advance<br>Oh, and also, this is a reminder that=
+ a particular someone still owes you money and the interest is really makin=
+g the values skyrocket<br>I wonder what he&#39;s up to nowadays<br>His capt=
+ion project seems to be going swimmingly, aside from the mass swarm of tabs=
+ involved=C2=A0<br><br><br></div></div>
+
+--0000000000006618e1064642a6d0--

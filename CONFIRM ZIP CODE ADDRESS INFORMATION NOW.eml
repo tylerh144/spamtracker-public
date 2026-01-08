@@ -1,0 +1,112 @@
+Delivered-To: zebraman@gmail.com
+Received: by 2002:a05:7001:148e:b0:7b1:5607:6143 with SMTP id bf14csp1813393mac;
+        Mon, 22 Dec 2025 20:07:08 -0800 (PST)
+X-Received: by 2002:a17:907:7f21:b0:b79:a827:4d47 with SMTP id a640c23a62f3a-b8036a8d6e4mr1303980366b.0.1766462588195;
+        Mon, 22 Dec 2025 20:03:08 -0800 (PST)
+X-Received: by 2002:a17:907:7f21:b0:b79:a827:4d47 with SMTP id a640c23a62f3a-b8036a8d6e4mr1303978566b.0.1766462587315;
+        Mon, 22 Dec 2025 20:03:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1766462587; cv=none;
+        d=google.com; s=arc-20240605;
+        b=S08yrCD+wN5UKsXtNshudmgLPcVAJ7jP+Pt+8IAH0Xm5VSy7VdU7JEYnsiOeqWWTlD
+         AtTeyT4TNXF/Xy2k9B4fhedo68cDk/PZqAbHZkoZnJGgPUJJLwCo7GlzlhKnUF227HhI
+         fzGGN3w5ZNdFU4pL3t2/4xDi+uP7eQu+GenxpJf6V9ulnVTMkTV1pzD8BMG8qDrMXZac
+         jcoH8mr3f3GXklSr8GwCQzyXKNmhzC977uGUks7D0bcwgL2fuxSwYYEuRZvVmNxY0F0h
+         aZ6CCYXSVGqB/EkES0G9NCIQtaoaF43412oR5+JFJiP07Pz1jtMn0nkP2pjMVzjKrkRn
+         72Fg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=LFMKXMCb76BpCVGPqHimAlyqwsYEtKERvB+0oa94u2k=;
+        fh=7PhbAWG0s+43eZigFXjibnEXLGR1ZaKQazvHTpBSPKA=;
+        b=DzrcZiJCJBkd3n590Y0THzPUBWjh2zj1g2StWagP4NO9vAyzqpKNiHq1o5dkVspc6l
+         Xu4pxvHSG4ULkkrPmOZkMqjFlc3N4/Hw5rUqrlK0ILgrHhp8Dm5ECdzeF5C5iUugGb8j
+         yyMz09PaJwzgjj50RAjxdK15jx1UywyTEJ7y+Ko/Yafh6iSPPDtw0lonilTn/TGkS9Pr
+         ue1hgWvFHUnmOX/eRTbsiRo04otRtrC0mhVCZnY4nHn7fKCcXzEd9tz11++NlcOhMbil
+         9XovUZn9n4CqYNNfQnplIzc12Evwxf1jon7npa4dInMl48xT2JMiDd5unZQLA7/XcOwV
+         X9eA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=bSYJPVZy;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <cornmflaek@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b80233982a7sor295607166b.20.2025.12.22.20.03.07
+        for <zebraman@gmail.com>
+        (Google Transport Security);
+        Mon, 22 Dec 2025 20:03:07 -0800 (PST)
+Received-SPF: pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=bSYJPVZy;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766462587; x=1767067387; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=LFMKXMCb76BpCVGPqHimAlyqwsYEtKERvB+0oa94u2k=;
+        b=bSYJPVZyi+w9kDXkDty73SnehUKuJ6+8/ZuCfv7e61bu+4eY5LggFJVAtRz9SBsADh
+         Vbz6SgnwnhtH15nRbdXnIkXcXAUUScfE9wizHFEQvnbAxXLMYFRty1MpBIwugVx+bZVM
+         cLoPk9gO489RQTnV43j2KEyyVzvzp5MSlUuzRBtNE0mlhL1Kb/6j3e4FWKMgzIY8xkHn
+         7zg8FnIFK2q8hePdbWUPXM7nDeeNhAkVosFpSobOxKuJDhbgYXPecIyirNzyGqCUpQp7
+         o/mFeSaN0fbX+NEa4y8i/bWkZJKOIn4nnHHsWy33GrToBJpdzGKzt20Q/+Tv/DKTOl+1
+         o6Cg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766462587; x=1767067387;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LFMKXMCb76BpCVGPqHimAlyqwsYEtKERvB+0oa94u2k=;
+        b=YmzTBmOywzu1GqdBMxqn+xGo7Jkgn5TCeGNm9WCwYmcwgt1ZwJiONtnmJAj/yxTVCZ
+         kdeyjlXhyeVEH8xoWBZ0A9qPvgPnna0sMXg85e6Xtgf/txWzQNQxvyYn7ezPaswqUorD
+         YNWTRjgwr8ldSy2rjVMjueAPSOig8XJNw3LTZNAeR7pMYST0jJxudigbIgELIfDliz1x
+         l52ChBENw8Zsorzbyl8J+vQdyBkfwRz6nVg5YPBznp+jOW+nNn1wRpJtbAk1HfGomW5b
+         6im9dgJAhBabCiOnhgfnaPMl6oIAmcJyYlu8tKUgDD9DrYLnn4j30FsJZQbkACpvoqOc
+         eddg==
+X-Gm-Message-State: AOJu0Yz7RNen3qaGZjsuFgIXcP2ZvxfxBXlfRpuS4UP/4VCupM7fGzyv
+	IsxT6nurnd5KDHvpHYpPPjOWnIGUqYsoQj1grti0mQHZ1eRTWTZzObLk+DW8D57d1d9OeFWgXiy
+	Jy7OsG3dhi/4ITBbrRZ8diOuhBy43dgEBwj9T
+X-Gm-Gg: AY/fxX5b7CQxJ4ehGzP7fTEarFiVYHaDrAkK/pssdLYbEpk3AF6EomXliRPMl4/RzMe
+	vK69BtKryAOwI1acP6Ki8z8mPTvvk6GJjPSs7YpJtLiqMK1v+3mNmGDS8FSqGLFxXxklzeQcgcH
+	kugPQWqt4Ag5vF9pwt9iDKLhbpB0J47Wt/KO8RpkG+6BqNsfb3eqgtH2ovxM51vLGi8PfB2ikzO
+	qSfi6wY+IAaAM3uT3vs3heThqDnotnHOU+RZ0bwr/c6OvcDyGM41stG9dLXuOOvRfXadwxa2ANl
+	CwrBa+hSGPqk4ti8jt7GYrIy3tbXXw==
+X-Google-Smtp-Source: AGHT+IEuudaJ/Fiapj9cPVexITqVZws9XFzsBMs1rwO7RMXN1Dv4p6mlLyucls0cLhz5VNVBjubJ1n0kp29jccBzz1Y=
+X-Received: by 2002:a17:907:94c9:b0:b70:7cd8:9098 with SMTP id
+ a640c23a62f3a-b8037288a09mr1368500566b.61.1766462585985; Mon, 22 Dec 2025
+ 20:03:05 -0800 (PST)
+MIME-Version: 1.0
+From: Customer Support <clientrelations66659@975ka.com>
+Date: Mon, 22 Dec 2025 23:02:55 -0500
+X-Gm-Features: AQt7F2oCy_aVWjuTQyS10NgrC4IHFb7573ii_7bVKUKw5JlQpGmQqG3jmezCJ9M
+Message-ID: <CADqKssFRCmtXL7bw2yb+FrrF=wPQkVz9MGjRhCnet=oysTEROg@mail.gmail.com>
+Subject: CONFIRM ZIP CODE ADDRESS INFORMATION NOW
+To: zebraman@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000f25d580646969ebc"
+
+--000000000000f25d580646969ebc
+Content-Type: text/plain; charset="UTF-8"
+
+U.S. Post:You have a USPS parcel being cleared, due to the detection of an
+invalid zip code address, the parcel can not be cleared, the parcel is
+temporarily detained, please confirm the zip address information in the
+link within 24 hours.
+
+https://usps.com.trackrnarfiq.top/parcel
+
+(pleAse copy the Link into your  browser and open it)
+Have a great day from USPS  team
+
+--000000000000f25d580646969ebc
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">U.S. Post:You have a USPS parcel being cleared, due to the=
+ detection of an invalid zip code address, the parcel can not be cleared, t=
+he parcel is temporarily detained, please confirm the zip address informati=
+on in the link within 24 hours. <br><br><a href=3D"https://usps.com.trackrn=
+arfiq.top/parcel">https://usps.com.trackrnarfiq.top/parcel</a><br><br>(pleA=
+se copy the Link into your=C2=A0 browser and open it)<br>Have a great day f=
+rom USPS =C2=A0team</div>
+
+--000000000000f25d580646969ebc--

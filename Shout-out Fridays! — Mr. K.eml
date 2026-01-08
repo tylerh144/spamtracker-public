@@ -1,0 +1,82 @@
+Delivered-To: tylerh144@nycstudents.net
+Received: by 2002:a05:7022:6293:b0:11c:8d53:b681 with SMTP id e19csp10361289dle;
+        Fri, 5 Dec 2025 06:48:49 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHdyiL3X2pNpKeLozKQXY6QMIsN4OnDN1lmE6puV6nLS3iLi8JL/G/kGWEYgjATfTtgK/Nh
+X-Received: by 2002:a05:6a21:6d99:b0:340:cc06:94f5 with SMTP id adf61e73a8af0-363f5e6fd27mr12853230637.44.1764946129096;
+        Fri, 05 Dec 2025 06:48:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1764946129; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ELBuAXIfxDxpu8REfbNX814uLkfl4W4JDhAM33nRoW2oyoAOf8DTUr1zjN3VIZd6Ij
+         F0Hh3uUlgc3SPCv+2P/BOT4ghJbsVVdkWvY1c/cKIYeoHDhkZxblpZxS/b3jup9NPUge
+         8oA9NvDC2DOenMdeP9In0nXND4lonrq+U+J6yCJVeA/K2gPKKJjqM6BR4k4iJBoOziRM
+         P0/BQYcxhLAVpDwVrQIuKtDC7DRrLIsNyofar8Ec/ClvrpTF1COk31aDM/LesdZfpELR
+         kEXKGsRItTu+++jxjnbWpcTvr7ZwWScw15knX869t31apAWz4VCCMnuzM2KsNuJeAlbX
+         OKQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:list-unsubscribe:reply-to:date:subject:to:from
+         :jupitermsgid2:mime-version:dkim-signature;
+        bh=HHCSNQ8e9gim/pIpiSiOb0vG5FjMpRMk9wlrzrjauls=;
+        fh=QyiKXnN/iksMNK6+VYqirALeplSobCo9ZqKnF3UBHvM=;
+        b=kJDeQRRIUbPXC1VZ9jSwbuwZxHxupswtvwXx5nRQWPyuZlyft5tpfp4OLiYHmmDP8Q
+         XMdpLDnhWSTd7kU23yyLf3vCjq+LsyIlUtQGkHm59NMhzMaEAHZbLzGoUGV3pYGzrIdi
+         0CVK0Ogu3AhLQquV6aNVmRJbK3YcpXVjYhLYUv7NsqvtX/6Y9ChEIYQbUCZ9NoUnUPgq
+         PUvPvo6tc7/uws8nwOVWvgFTF/NBTc3Ph4aLQzAkOiwYNt7o1adXR3J6/2yMjYJnLxDa
+         6PV+TKhJ1VK5zhv8g6nZ0K8/D6/aZwl/1D+J+cYGVEILU0EtCuiLS/l8P4168VWKG+vP
+         Fr0A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@jupitered.com header.s=dkim header.b=TEAlvQIU;
+       spf=pass (google.com: domain of bounce.1.3949658.156197857.4@jupitered.com designates 69.166.9.253 as permitted sender) smtp.mailfrom=bounce.1.3949658.156197857.4@jupitered.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=jupitered.com
+Return-Path: <bounce.1.3949658.156197857.4@jupitered.com>
+Received: from smtp3.jupitered.com (smtp3.jupitered.com. [69.166.9.253])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-bf6a658f46fsi1906968a12.1032.2025.12.05.06.48.48
+        for <tylerh144@nycstudents.net>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Dec 2025 06:48:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce.1.3949658.156197857.4@jupitered.com designates 69.166.9.253 as permitted sender) client-ip=69.166.9.253;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@jupitered.com header.s=dkim header.b=TEAlvQIU;
+       spf=pass (google.com: domain of bounce.1.3949658.156197857.4@jupitered.com designates 69.166.9.253 as permitted sender) smtp.mailfrom=bounce.1.3949658.156197857.4@jupitered.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=jupitered.com
+Received: by 1215357-mail.jupitered.com (Postfix, from userid 0)
+	id 19209813D5D3; Fri,  5 Dec 2025 06:48:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jupitered.com;
+	s=dkim; t=1764946128; h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 content-type:content-type:list-unsubscribe;
+	bh=HHCSNQ8e9gim/pIpiSiOb0vG5FjMpRMk9wlrzrjauls=;
+	b=TEAlvQIUOiLvkoqnQkeadvJyKjPM3rgVR/yUJPuM0pHCfKN4vn5n2CJVZvtpB6beYL5s9i
+	gjb+9xRcyGosXee1A9UHFhlXtsNZIbZEgkbZSzho1Cab554Oe8AMhfsqWTH3KIzTPaGy1F
+	VTkLzpRNcqJwW8tYwFIMGu9wYDxDjic=
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+JupiterMsgID2: 1,3949658,156197857,4
+From: "Mr. K via Jupiter" <notify@jupitered.com>
+To: tylerh144@nycstudents.net
+Subject: =?utf-8?B?U2hvdXQtb3V0IEZyaWRheXMhIOKAlCBNci4gSw==?=
+Date: Fri, 05 Dec 2025 06:46:48 -0800
+Reply-To: "Mr. K via Jupiter" <reply.4.0.3949658.0.156197857@jupitered.com>
+List-Unsubscribe: <https://login.jupitered.com/0/unsubscribe.php?stud=3949658&contact=0&server=4&email=tylerh144%40nycstudents.net&type=msg&token=fb60ef9148ec1dd64eff326ea4bb5eb0>
+Message-Id: <20251205144848.19209813D5D3@1215357-mail.jupitered.com>
+
+<div style="font-family:Arial"><a
+href="https://login.jupitered.com/0/private.php?3949658-4-2282667080-forum%2C128526715%2C%2A"
+style="display:inline-block; padding:6px 16px; background-color:#5656C6;
+color:white; text-decoration:none; font-weight:bold;
+border-radius:6px;">Reply</a> &nbsp; <a
+href="https://login.jupitered.com/0/private.php?3949658-4-2282667080"
+style="display:inline-block; padding:6px 16px; background-color:#5656C6;
+color:white; text-decoration:none; font-weight:bold;
+border-radius:6px;">Login</a><br><br>
+<b>Shout-out Fridays!</b><br><br>Good morning, everyone,<br><br>Happy
+Friday!<br><br>What time is it?! It's Shout-out time! Please fill out the
+following form to shout out a counselor or social worker who has made your
+week!<br><br><a href="https://forms.gle/fAE4qBnqEN3yPsA4A" target=link
+onclick="event.stopPropagation()">forms.gle/fAE4qBnqEN3yPsA4A</a><br><br>Thank
+you!<br><br>Hope this finds you well.<br><br><br><a
+href="https://login.jupitered.com/0/unsubscribe.php?stud=3949658&contact=0&server=4&email=tylerh144%40nycstudents.net&type=msg&token=fb60ef9148ec1dd64eff326ea4bb5eb0">Unsubscribe</a></div>
+<div style="padding-top:20px">
+<img
+src="https://jupitered.com/jupiter_logo/4.128526715.156197857.0.3949658.0.a2qb7ypn6ugook8go4c0kgw8o.png"
+width=120 /></div>

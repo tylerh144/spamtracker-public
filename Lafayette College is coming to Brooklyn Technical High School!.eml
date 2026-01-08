@@ -1,0 +1,326 @@
+Delivered-To: zebraman@gmail.com
+Received: by 2002:a05:7001:148e:b0:7b1:5607:6143 with SMTP id bf14csp1820340mac;
+        Mon, 22 Dec 2025 20:30:28 -0800 (PST)
+X-Received: by 2002:a05:6102:e12:b0:5db:417d:923d with SMTP id ada2fe7eead31-5eb1a7c1375mr3556061137.22.1766464228498;
+        Mon, 22 Dec 2025 20:30:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1766464228; cv=none;
+        d=google.com; s=arc-20240605;
+        b=X1S+ln9nIThohYa6SLJrCzrpOT79xPCouHcqnbjhhQZ4a23jChJ+nG8ysMf/ToUviO
+         kLdDNhAdwyrdXs3tfdRBQ2IHvUeikglqaKer4x7otvyEbn9cfNlF7B/CvqLAhZee12i/
+         8poYiV3rc86G0evxTUriq5DhNQGxw2pruZ1FiUkA2qgCu/L3rziDSf0PA92ChgSV432J
+         2vkzrSqt4pzSvxSs0Qgh7fOsqeTY2MoAbBU9QbQliUXFXatx5fXk3jTScF+ajlgFjWIe
+         RgCHlw4AOZYp5DlK0JaRzWoCTxiyN8GZsCU5MFtaenQSJCNeSG8jeWP2J82lu2ubTpVI
+         c1fQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=aZeVCkmGECCJINn0LYo0xKzJ+UEu7m4q6y+8VsFLTyE=;
+        fh=7PhbAWG0s+43eZigFXjibnEXLGR1ZaKQazvHTpBSPKA=;
+        b=Z9vbQK7HJXHfzvVWSMDG4BxkEUqfUIa5eXosSrVMDi1gEQNFjetCguxXm/SoIo4jbx
+         nn0isEeICd9DothfGatooJDitDDQt2pNli2xHtLzX2bGgn4mEPWbbVbfUEuYbM7D2zLU
+         tVjXmgUtbYxNZvicJRpQF1ApKWoF4xs2yE4kVK4TO7vipVBQ2uWEIscxZ/AdiY4AOBQO
+         algTIi1tRm7gXYqpcKvEbL4esvFX08Hj72T6zaxv5FouMFRe/Jkne+JzCu+iqudO8XnV
+         qvBJoBTEPfW9Px/oeyL5a2Z5AKhuFDCSfNG66exdjY3nzneyK8aTE0h166UatbbOWi+J
+         4MTQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=lkj90bZM;
+       spf=pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=anson.chen934@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <anson.chen934@gmail.com>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id ada2fe7eead31-5eb0576a104sor833989137.2.2025.12.22.20.30.28
+        for <zebraman@gmail.com>
+        (Google Transport Security);
+        Mon, 22 Dec 2025 20:30:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=lkj90bZM;
+       spf=pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=anson.chen934@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766464228; x=1767069028; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=aZeVCkmGECCJINn0LYo0xKzJ+UEu7m4q6y+8VsFLTyE=;
+        b=lkj90bZMG1P3ZyXNimMomi13f+5meaWYDQevcwFrd04UWv9GkoqUUzzB6ZDfXc8bY3
+         lmeLZmRAmz8AxytmDn89HrkV2g1TmiV2IhC6I70+sTr3yzvxfZDiTcs27OkeXHLCii8e
+         0aVXunsklmABvJp3KlhdfvJ8KkgQNV27IzrWIIXcfATFRchWo06jyZc3CWsS4BhVbIto
+         qrRL09Dj7rtuRiDulmCbn9HFPxjCEeYhNKbFYQNSminmVJ0mjtnlsnU6vb9H6YF2r23v
+         opnjftIRNAiepeyS1xtC67wXlUT1P4Hdr9gllzagXtjfgq/n5hR9QRLXcEG53IvE1cPl
+         uzvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766464228; x=1767069028;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aZeVCkmGECCJINn0LYo0xKzJ+UEu7m4q6y+8VsFLTyE=;
+        b=OVeLF0/Cf/YnBmxwuwZ4eWuHuMTBlsxTKFqhq9vddvYplKwq/sPd0mHSsDW/JwwA/k
+         NYnX9y1xJ/oZs5m1Ps4+eK3rMgFwXBCc7fFNL//njjL1m6qnnlQy96WZrpiJSGyoqEQW
+         pRhY4/5xuoQ9C2KD3qa2d72bWnnvg66CfEsCMGmsry5uoaOR0or2qWYk+Bsm/fdn7xCb
+         e36p2JT2b/01CuGjQLt/DtDUOsXaoGbFj5E6xxue7rxWfaZAni8LXDnc8r+M3aiv5hRt
+         bOyWfhYoLkoAMbSnjr9B/Y3Ts4iVbb3/zY1skRFeBLnn1q7xBH61pwetMZXxthomORkR
+         XmvQ==
+X-Gm-Message-State: AOJu0Yz/4X1kRBzGMSLuAj6genzF9lZDqfz4APnC+WaKIIXP7NUsL5ai
+	It7D3snB62yLG3ORCgVV7MG0HA4gV5OBSk5UsaWZhhA9v8zf8n5XbNdE9SmO46ubNlJUWER5mpI
+	t0528efEMJc+ioRALQPtPxVWIHdnXSYKP7qSZ
+X-Gm-Gg: AY/fxX6lmua7kcPYAELHTYAJKl4y3XAMwVtgvy6U6MoNm9fgWZiJsehF6DCrzMtkY3p
+	d5L+AN9lh3YHkRBNoYOMRdXIOUCvNMlQ137ysw0C10ikFlOTakBVyBrFWxJxMml2BXP49hwwr6r
+	rwqi7dN6vpbX8zsp1py9siZGquY9GiMkBIOXFeENGa4dBYBH1GAD3XC5cUh6xRbo6D2qFx+cS4n
+	/XbkQ/swPVCB59VuBtvUOhCKY4NNVcQaa66toOjj8aIiyljlWtEnEIQ5NNHya8ebvfK6yOSKinF
+	WEyDw05bxS4b73O8bYdTilAT0snpAw==
+X-Google-Smtp-Source: AGHT+IGO873MQzDYsoWKPx0zPc0jovGXdidTeOL+/qOoO27yeTH7fTIK1a/+4270AzdEzUtNY0vfIOSZDUGvHLAVxV8=
+X-Received: by 2002:a05:6102:688c:b0:5df:c390:ef53 with SMTP id
+ ada2fe7eead31-5eb1a803fbcmr3878605137.36.1766464227837; Mon, 22 Dec 2025
+ 20:30:27 -0800 (PST)
+MIME-Version: 1.0
+References: <14c83439-0551-4a38-a474-df47a630d7bf@technolutions.net>
+In-Reply-To: <14c83439-0551-4a38-a474-df47a630d7bf@technolutions.net>
+From: Anson Chen <anson.chen934@gmail.com>
+Date: Mon, 22 Dec 2025 20:30:17 -0500
+X-Gm-Features: AQt7F2pNQY_R5On77ZshiNAE_bs3AHl82ilqe54DxkAzPZ1JjfDP2KWfOS0Jl0E
+Message-ID: <CANDF-ToJx-mhsbD6x7tbt0b3cS4+yz9L-mQqYLzzzH2oRX3UkQ@mail.gmail.com>
+Subject: Fwd: Lafayette College is coming to Brooklyn Technical High School!
+To: zebraman@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000cf0af006469700a2"
+
+--000000000000cf0af006469700a2
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+are you interested? i'm only pulling up if you and tenis are, by the way
+
+---------- Forwarded message ---------
+From: T=C3=A9o Rodriguez <rodrigmc@lafayette.edu>
+Date: Mon, Oct 20, 2025 at 10:19=E2=80=AFAM
+Subject: Lafayette College is coming to Brooklyn Technical High School!
+To: <anson.chen934@gmail.com>
+
+
+[image: LAF_logo_red_200]
+Dear Anson,
+
+A fun part of my job as an Admissions officer is meeting with students. I'm
+excited that I will be visiting your school and I would enjoy talking with
+you. Here are the details of my upcoming visit:
+
+* Brooklyn Technical High School*
+* Wednesday, October 22 at 8:45 AM Eastern Standard Time*
+Please connect with your school's guidance/counseling office with respect
+to registering for my session.
+
+Exploring college options can be both an exciting and daunting experience.
+If your schedule allows for us to meet I can certainly share updates on all
+that Lafayette has to offer, but I will also plan to provide insight in how
+best to maneuver within your college search.
+
+I realize that it is sometimes difficult to miss class for college visits.
+If you are unable to meet with me, I invite you to engage with Lafayette
+<https://mx.technolutions.net/ss/c/u001.SXblp6ePJ8snAFTt7_M5G64k1F1c8O22j8M=
+eyoR7gx0QUNjRQpjZAgv3HqwXEvpC7y-6BrwGhdl11bdseG6SVw/4kw/NGIZvyGRRzGzRLBgPd0=
+juQ/h0/h001.c9mYVanP-hlkA6rKMp9oD0kseTJFJe8L6bjGyssKc8A>
+in other ways. In the meantime, you can also explore our campus
+through our virtual
+tour
+<https://mx.technolutions.net/ss/c/u001._bIG8eR4_pA3u1V-UBp0z9m6-dSIU8HMlH_=
+mYVDbfbPZ4H2qd8FUnXhAG-1xjPQ8/4kw/NGIZvyGRRzGzRLBgPd0juQ/h1/h001.m3aCVGWFLB=
+ADCd8okZNFOiciVtsXr0x7lMIupYX8kO0>
+.
+
+Thank you,
+
+T=C3=A9o Rodriguez
+Admissions Counselor
+rodrigmc@lafayette.edu
+[image: About Lafayette]
+<https://mx.technolutions.net/ss/c/u001.jxaZRujEt1lhE0WEp4QewITacKauySdExBA=
+dSeXzY9ZJkB9kbATh3BA1RB1mHHo5/4kw/NGIZvyGRRzGzRLBgPd0juQ/h2/h001.rIKy-GPaI4=
+82CR4xqy0SsHqLTKUxR1x8xLNh7XMKrcA>
+
+Connect with us:
+<https://mx.technolutions.net/ss/c/u001.mv75SfSNMmSvduEMaqEjkCvvpf6HLMiPd0y=
+rVo3CO8L9UoEZOqgzcRFiSmzwtTYWy2fl6bhJfW7r36npOH5QhN-tS_YrQayhy8TP5WlqHSc/4k=
+w/NGIZvyGRRzGzRLBgPd0juQ/h3/h001.PYGlGKvvyTQ2zGSFr0HHGD_feET4_GWbqCyZVhNur6=
+k>
+
+<https://mx.technolutions.net/ss/c/u001.jHUdaz39nLWnSyuTlUQzabUwFEqZVVbpTG1=
+geAg9vYO2D_dwo4lrPT7c6B0p2QKB/4kw/NGIZvyGRRzGzRLBgPd0juQ/h4/h001.WLoVAeqZEG=
+Z_fO-oNbtefHLKSJ3NcyefyzsCBh4YsdY>
+
+<https://mx.technolutions.net/ss/c/u001.jxaZRujEt1lhE0WEp4QewAS_3nGvJagPG1s=
+caLCXKuJPsH0fGjRMLhAxdEBCRm4dIA9qurq_KoH7HCdPsvl8IQ/4kw/NGIZvyGRRzGzRLBgPd0=
+juQ/h5/h001.4VrVKLJ26QhSEpa8x9CEvFxCg0_vEKjSuqAvPC32GRA>
+
+<https://mx.technolutions.net/ss/c/u001.mv75SfSNMmSvduEMaqEjkK-UQyMT_Zh6PaX=
+QVJMwPwOcyVhoGuEhMEONSOLdCP1f/4kw/NGIZvyGRRzGzRLBgPd0juQ/h6/h001.4WfkSPHaUk=
+F9UZ5aQKnvqGvNhOTGC8U7WVE3MgDCMBc>
+
+<https://mx.technolutions.net/ss/c/u001.0to_dZRINTlWDHYa-1FPnrHj7S7cQCZcPVh=
+yhsGlGH9Vl_ZUx8K4yxjKzzh0alV9/4kw/NGIZvyGRRzGzRLBgPd0juQ/h7/h001.7IZuQ5Gk4s=
+a9pPFcDLXo443hggIy1zo6AoJxIntvzdQ>
+
+730 High Street, Easton, PA 18042
+admissions@lafayette.edu
+<https://mx.technolutions.net/ss/c/u001.SXblp6ePJ8snAFTt7_M5G0FdpPdYkoGSbH8=
+HFcVD5_pLOCO92ev6j9n558Mbc0W8/4kw/NGIZvyGRRzGzRLBgPd0juQ/h8/h001.ieddx59HKG=
+56DAN2qo_ttur_vWNCaO25CKEjw3g5ooI>
+| http://admissions.lafayette.edu
+<https://mx.technolutions.net/ss/c/u001.SXblp6ePJ8snAFTt7_M5G64k1F1c8O22j8M=
+eyoR7gx3KeG4y12qJM87kGTSzQXCF/4kw/NGIZvyGRRzGzRLBgPd0juQ/h9/h001.yTh7xhMm_E=
+01wTYeV_TWbuCEr3PA048OCG5WsvcwHAU>
+This email was sent to anson.chen934@gmail.com by T=C3=A9o Rodriguez.
+Unsubscribe
+<https://mx.technolutions.net/ss/c/u001.KDW4Io7FlnyLZPy645sEZzcJlfgpJbmJKZJ=
+NYY2zNLrE-Y7ZIjRV8MJLorYEsaXzkI7nJuKW_yIPUDTw_5Z3XQLquU13VkfaDhP8NIGDXx3xWc=
+8ezA7y_e76TIWD9JGr/4kw/NGIZvyGRRzGzRLBgPd0juQ/h10/h001.4Dm4q9Swwnj40zNRjzWg=
+-RVui46MDbcHSOnhHoVxLf4>
+from Messages from your Admissions Counselor.
+
+--000000000000cf0af006469700a2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">are you interested? i&#39;m only pulling up if you and ten=
+is=C2=A0are, by the way<br><br><div class=3D"gmail_quote gmail_quote_contai=
+ner"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---=
+------<br>From: <strong class=3D"gmail_sendername" dir=3D"auto">T=C3=A9o Ro=
+driguez</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:rodrigmc@lafayett=
+e.edu">rodrigmc@lafayette.edu</a>&gt;</span><br>Date: Mon, Oct 20, 2025 at =
+10:19=E2=80=AFAM<br>Subject: Lafayette College is coming to Brooklyn Techni=
+cal High School!<br>To:  &lt;<a href=3D"mailto:anson.chen934@gmail.com">ans=
+on.chen934@gmail.com</a>&gt;<br></div><br><br><div class=3D"msg794815685863=
+5653968"><u></u>
+
+
+
+
+
+
+<div bgcolor=3D"#FFFFFF" style=3D"background-color:#ffffff;color:#000000;ma=
+rgin:0px;padding:0px" text=3D"#000000">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"640"><tbody><tr><td align=3D"center"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"640"><tbody><tr><td><im=
+g alt=3D"LAF_logo_red_200" border=3D"0" hspace=3D"0" title=3D"LAF_logo_red_=
+200" vspace=3D"10" src=3D"https://mx.technolutions.net/proxy/R-YZ1kaKZm4wiZ=
+pIseWJGFdhHOqAzsc8ihkqLSaQwbl1SXcJoLszMsza7yI_X57QWoj4SwIHjzaP37wEcsW2k0gOF=
+Hbg7vv1wHy5RZb17sxzNgqQvICU6Woly-8VTUIB"></td></tr><tr><td><img style=3D"bo=
+rder-width:0px;border-style:solid;margin:10px 0px;width:640px;height:200px"=
+ height=3D"200" width=3D"640" src=3D"https://mx.technolutions.net/proxy/iMw=
+H-ylhUYll_4Qmoe1MpTcOFWPhB8UnhtsstpURudOQS1jAZpm55Z0O2nO3dO4jkvblFkfKZb5DVb=
+MHSF31Jg"></td></tr><tr style=3D"background-color:#ffffff;font-family:Lucid=
+a Sans Unicode,Lucida Grande,sans-serif;color:#000000;font-size:1em"><td al=
+ign=3D"left" style=3D"padding:8px" valign=3D"top">Dear Anson,<br>
+                =C2=A0<br>
+                A fun part of my job as an Admissions officer is meeting wi=
+th students. I&#39;m excited that I will be visiting your school and I woul=
+d enjoy talking with you. Here are the details of my upcoming  visit:<br><s=
+trong><br>
+                Brooklyn Technical High School</strong><span style=3D"font-=
+size:14px"></span><span style=3D"font-size:16px"><strong><br>
+                Wednesday, October 22 at 8:45 AM Eastern Standard Time</str=
+ong></span><span style=3D"font-size:14px"><br>
+                Please connect with your school&#39;s guidance/counseling o=
+ffice with respect to registering for my session.=C2=A0</span><br><br>
+                Exploring college options can be both an exciting and daunt=
+ing experience. If your schedule allows for us to meet I can certainly shar=
+e updates on all that Lafayette has to offer, but I will also plan to provi=
+de insight in how best to maneuver within your college search.<br><br>
+                I realize that it is sometimes difficult to miss class for =
+college visits. If you are unable to meet with me, I invite you to <a href=
+=3D"https://mx.technolutions.net/ss/c/u001.SXblp6ePJ8snAFTt7_M5G64k1F1c8O22=
+j8MeyoR7gx0QUNjRQpjZAgv3HqwXEvpC7y-6BrwGhdl11bdseG6SVw/4kw/NGIZvyGRRzGzRLBg=
+Pd0juQ/h0/h001.c9mYVanP-hlkA6rKMp9oD0kseTJFJe8L6bjGyssKc8A" title=3D"http:/=
+/admissions.lafayette.edu/admissions-visits/" target=3D"_blank">engage with=
+ Lafayette</a> in other ways. In the meantime, you can also explore our cam=
+pus through our <a href=3D"https://mx.technolutions.net/ss/c/u001._bIG8eR4_=
+pA3u1V-UBp0z9m6-dSIU8HMlH_mYVDbfbPZ4H2qd8FUnXhAG-1xjPQ8/4kw/NGIZvyGRRzGzRLB=
+gPd0juQ/h1/h001.m3aCVGWFLBADCd8okZNFOiciVtsXr0x7lMIupYX8kO0" title=3D"https=
+://virtualtour.lafayette.edu/" target=3D"_blank">virtual tour</a>.<br><br>
+                Thank you,<br><br>
+                T=C3=A9o Rodriguez<br>
+                Admissions Counselor<br>
+                <a href=3D"mailto:rodrigmc@lafayette.edu" target=3D"_blank"=
+>rodrigmc@lafayette.edu</a><br>
+                </td></tr><tr align=3D"center" valign=3D"bottom"><td></td><=
+/tr><tr style=3D"background-color:#7c0023"><td colspan=3D"2"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td><t=
+able border=3D"0" cellpadding=3D"0px" cellspacing=3D"0" width=3D"100%"><tbo=
+dy><tr><td align=3D"center" style=3D"padding-top:10px;padding-left:10px;pad=
+ding-bottom:10px" valign=3D"bottom"><a href=3D"https://mx.technolutions.net=
+/ss/c/u001.jxaZRujEt1lhE0WEp4QewITacKauySdExBAdSeXzY9ZJkB9kbATh3BA1RB1mHHo5=
+/4kw/NGIZvyGRRzGzRLBgPd0juQ/h2/h001.rIKy-GPaI482CR4xqy0SsHqLTKUxR1x8xLNh7XM=
+KrcA" title=3D"https://www.lafayette.edu" target=3D"_blank"><img alt=3D"Abo=
+ut Lafayette" hspace=3D"10" style=3D"margin-top:10px" vspace=3D"15" align=
+=3D"center" width=3D"200px" src=3D"https://mx.technolutions.net/proxy/tEEcZ=
+f7IAU31HPwCL_pn1ZNwqKJ9-VJMQ_h8FX8dEh90YcWuQmDW2nHIeyhU98xGM4olRBmZHmhy-T8g=
+hABhyQAKPwVw2SNRqim0-7PwXXTis1dSyl8R0_18vztMvZ8q/7k6BIO6OKftlaMrZFc-pYg"></=
+a></td></tr></tbody></table></td></tr><tr><td align=3D"center" style=3D"pad=
+ding-top:10px"><p><span style=3D"font-size:16px"><span style=3D"color:rgb(2=
+55,255,255)">Connect with us:</span></span><span style=3D"font-size:20px;co=
+lor:#ffffff"><a href=3D"https://mx.technolutions.net/ss/c/u001.mv75SfSNMmSv=
+duEMaqEjkCvvpf6HLMiPd0yrVo3CO8L9UoEZOqgzcRFiSmzwtTYWy2fl6bhJfW7r36npOH5QhN-=
+tS_YrQayhy8TP5WlqHSc/4kw/NGIZvyGRRzGzRLBgPd0juQ/h3/h001.PYGlGKvvyTQ2zGSFr0H=
+HGD_feET4_GWbqCyZVhNur6k" title=3D"http://www.facebook.com/pages/Lafayette-=
+College/113338282779?ref=3Dts" style=3D"text-decoration:none" target=3D"_bl=
+ank">=C2=A0<img src=3D"https://mx.technolutions.net/proxy/tEEcZf7IAU31HPwCL=
+_pn1ZNwqKJ9-VJMQ_h8FX8dEh90YcWuQmDW2nHIeyhU98xGM4olRBmZHmhy-T8ghABhyfIZCzZN=
+sxpXKV9Q7GAvFZaxKQi-WbqB1KEVTMLzC3we"></a>=C2=A0<a href=3D"https://mx.techn=
+olutions.net/ss/c/u001.jHUdaz39nLWnSyuTlUQzabUwFEqZVVbpTG1geAg9vYO2D_dwo4lr=
+PT7c6B0p2QKB/4kw/NGIZvyGRRzGzRLBgPd0juQ/h4/h001.WLoVAeqZEGZ_fO-oNbtefHLKSJ3=
+NcyefyzsCBh4YsdY" title=3D"https://twitter.com/LafCol" style=3D"text-decora=
+tion:none" target=3D"_blank"><img src=3D"https://mx.technolutions.net/proxy=
+/tEEcZf7IAU31HPwCL_pn1ZNwqKJ9-VJMQ_h8FX8dEh90YcWuQmDW2nHIeyhU98xGM4olRBmZHm=
+hy-T8ghABhyaGRPxERcWiaDrvJ-4jBfbY"></a>=C2=A0<a href=3D"https://mx.technolu=
+tions.net/ss/c/u001.jxaZRujEt1lhE0WEp4QewAS_3nGvJagPG1scaLCXKuJPsH0fGjRMLhA=
+xdEBCRm4dIA9qurq_KoH7HCdPsvl8IQ/4kw/NGIZvyGRRzGzRLBgPd0juQ/h5/h001.4VrVKLJ2=
+6QhSEpa8x9CEvFxCg0_vEKjSuqAvPC32GRA" title=3D"https://www.flickr.com/photos=
+/lafayette-college/" style=3D"text-decoration:none" target=3D"_blank"><img =
+src=3D"https://mx.technolutions.net/proxy/tEEcZf7IAU31HPwCL_pn1ZNwqKJ9-VJMQ=
+_h8FX8dEh90YcWuQmDW2nHIeyhU98xGM4olRBmZHmhy-T8ghABhyUWGbK43EzY_eQ5s2AJotwk"=
+></a>=C2=A0<a href=3D"https://mx.technolutions.net/ss/c/u001.mv75SfSNMmSvdu=
+EMaqEjkK-UQyMT_Zh6PaXQVJMwPwOcyVhoGuEhMEONSOLdCP1f/4kw/NGIZvyGRRzGzRLBgPd0j=
+uQ/h6/h001.4WfkSPHaUkF9UZ5aQKnvqGvNhOTGC8U7WVE3MgDCMBc" title=3D"http://www=
+.youtube.com/lafayettecollege" style=3D"text-decoration:none" target=3D"_bl=
+ank"><img src=3D"https://mx.technolutions.net/proxy/tEEcZf7IAU31HPwCL_pn1ZN=
+wqKJ9-VJMQ_h8FX8dEh90YcWuQmDW2nHIeyhU98xGM4olRBmZHmhy-T8ghABhyR_klCeoDcc8DH=
+-lH05AkKk"></a>=C2=A0<a href=3D"https://mx.technolutions.net/ss/c/u001.0to_=
+dZRINTlWDHYa-1FPnrHj7S7cQCZcPVhyhsGlGH9Vl_ZUx8K4yxjKzzh0alV9/4kw/NGIZvyGRRz=
+GzRLBgPd0juQ/h7/h001.7IZuQ5Gk4sa9pPFcDLXo443hggIy1zo6AoJxIntvzdQ" title=3D"=
+https://instagram.com/lafcoladmissions" style=3D"text-decoration:none" targ=
+et=3D"_blank"><img src=3D"https://mx.technolutions.net/proxy/tEEcZf7IAU31HP=
+wCL_pn1ZNwqKJ9-VJMQ_h8FX8dEh90YcWuQmDW2nHIeyhU98xGM4olRBmZHmhy-T8ghABhyX1LV=
+SYC476ItzwRNoHfBOJoD1Mps6BXKZpXYh78KPiT"></a></span></p></td></tr><tr><td a=
+lign=3D"center"><p>
+                        730 High Street, Easton, PA 18042<br><a href=3D"htt=
+ps://mx.technolutions.net/ss/c/u001.SXblp6ePJ8snAFTt7_M5G0FdpPdYkoGSbH8HFcV=
+D5_pLOCO92ev6j9n558Mbc0W8/4kw/NGIZvyGRRzGzRLBgPd0juQ/h8/h001.ieddx59HKG56DA=
+N2qo_ttur_vWNCaO25CKEjw3g5ooI" title=3D"http://admissions@lafayette.edu" st=
+yle=3D"color:#ffffff" target=3D"_blank">admissions@lafayette.edu</a> | <a h=
+ref=3D"https://mx.technolutions.net/ss/c/u001.SXblp6ePJ8snAFTt7_M5G64k1F1c8=
+O22j8MeyoR7gx3KeG4y12qJM87kGTSzQXCF/4kw/NGIZvyGRRzGzRLBgPd0juQ/h9/h001.yTh7=
+xhMm_E01wTYeV_TWbuCEr3PA048OCG5WsvcwHAU" title=3D"http://admissions.lafayet=
+te.edu" style=3D"color:#ffffff" target=3D"_blank">http://admissions.lafayet=
+te.edu</a></p></td></tr><tr align=3D"center" valign=3D"bottom"><td colspan=
+=3D"3"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbod=
+y></table><div style=3D"opacity:0.75;clear:both;color:#333333;font-family:A=
+rial,Helvetica,sans-serif;font-size:11px;margin:25px auto;width:auto;max-wi=
+dth:600px;background-color:#fafafa;text-align:center;padding:5px">This emai=
+l was sent to <a href=3D"mailto:anson.chen934@gmail.com" target=3D"_blank">=
+anson.chen934@gmail.com</a> by T=C3=A9o Rodriguez.<br><a href=3D"https://mx=
+.technolutions.net/ss/c/u001.KDW4Io7FlnyLZPy645sEZzcJlfgpJbmJKZJNYY2zNLrE-Y=
+7ZIjRV8MJLorYEsaXzkI7nJuKW_yIPUDTw_5Z3XQLquU13VkfaDhP8NIGDXx3xWc8ezA7y_e76T=
+IWD9JGr/4kw/NGIZvyGRRzGzRLBgPd0juQ/h10/h001.4Dm4q9Swwnj40zNRjzWg-RVui46MDbc=
+HSOnhHoVxLf4" target=3D"_blank">Unsubscribe</a> from Messages from your Adm=
+issions Counselor.</div>
+<img src=3D"https://mx.technolutions.net/ss/o/u001.l7ggKG0fqQ6Gg4_ean_HcQ/4=
+kw/NGIZvyGRRzGzRLBgPd0juQ/ho.gif" alt=3D"" width=3D"1" height=3D"1" border=
+=3D"0" style=3D"height:1px!important;width:1px!important;border-width:0!imp=
+ortant;margin-top:0!important;margin-bottom:0!important;margin-right:0!impo=
+rtant;margin-left:0!important;padding-top:0!important;padding-bottom:0!impo=
+rtant;padding-right:0!important;padding-left:0!important"></div>
+</div></div></div>
+
+--000000000000cf0af006469700a2--

@@ -1,0 +1,233 @@
+Delivered-To: tylerh144@nycstudents.net
+Received: by 2002:a05:7022:aa0:b0:11c:8d53:b681 with SMTP id dd32csp875651dlb;
+        Sun, 7 Dec 2025 15:04:18 -0800 (PST)
+X-Received: by 2002:a05:6830:40ab:b0:7c6:e92f:41df with SMTP id 46e09a7af769-7c970750cf1mr2565416a34.12.1765148658568;
+        Sun, 07 Dec 2025 15:04:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765148658; cv=none;
+        d=google.com; s=arc-20240605;
+        b=O5QEiEiCs691tib9pe6N3mgKa1zpRVjgkByN8pHTaX4tdcB+UbZx+U5GOuQVzoWga3
+         GDf8bbxxMfKIhMG06BHgtFmFFmoPWHQddFKGD2TkCmULRznhyaHPAOsJfYM4FS7fXNPy
+         ju68zQ3o+YNZ7XJhl6mdGITCakDfQE7BJx1U0fKRTe1MNS20uT6iXBbBQW1xmTWeGW9U
+         DukXg+xzJfbLPSttmoRsRyr9E1kh3r5v+SLIR8WFnW4z/1G10wkCGkpxaUy6XwmuOXWt
+         g+C0NUOfVITntFQwQcEqBUwGjtKSaqt+cTzoeoW7Ujh50ywdmQR8v7KZhrlC8rVLdMBN
+         xuEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:message-id:gmsai:date:mime-version:dkim-signature;
+        bh=pjVEjgopeiAGIti5t/mLhP/8lkeVbiCLuYt2ZZFx5y8=;
+        fh=QyiKXnN/iksMNK6+VYqirALeplSobCo9ZqKnF3UBHvM=;
+        b=IU0I3hCxBKO1exdiiwCSF345C3ES3Rzeuomcqh3kuNQJJLHAZTapKD/21MnPOsn09R
+         y34xTB22nxp5ViaEghNcpMq9ZOavSpGelV0CV5lzBrGh9j2ayGOUEUGgzoJ0pIyWyBC/
+         bhy2ZOHzwRULY7gYSQfxt0V9OUgxLIsOm6Cw8lE8GK5iOxgbmD9FuwR4TyCCUeWmRkUz
+         B11H/NSIheDgmaeH+HSpBfcLVQ56XbvKPkSBQtzb4zAJpRWI50L5+JZBlQfx4U1bU7Nq
+         qMoUEBn7PEmeNVz84SMw/PmCf7ahldTTZdw1TvTnyawrXm90qaoo1l8tZfKuGjOuoc7q
+         vYqw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=ROxClw1l;
+       spf=pass (google.com: domain of 38gc2aqguacsuv-ylwsfjshzzyvvt.nvvnsl.jvt@chime-notifications-apps.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=38gc2aQgUACsUV-YLWSfJSHZZYVVT.NVVNSL.JVT@chime-notifications-apps.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=neutral header.i=@nycstudents.net
+Return-Path: <38gc2aQgUACsUV-YLWSfJSHZZYVVT.NVVNSL.JVT@chime-notifications-apps.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 46e09a7af769-7c95a8ed1bcsor3332786a34.1.2025.12.07.15.04.18
+        for <tylerh144@nycstudents.net>
+        (Google Transport Security);
+        Sun, 07 Dec 2025 15:04:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of 38gc2aqguacsuv-ylwsfjshzzyvvt.nvvnsl.jvt@chime-notifications-apps.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=ROxClw1l;
+       spf=pass (google.com: domain of 38gc2aqguacsuv-ylwsfjshzzyvvt.nvvnsl.jvt@chime-notifications-apps.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=38gc2aQgUACsUV-YLWSfJSHZZYVVT.NVVNSL.JVT@chime-notifications-apps.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=neutral header.i=@nycstudents.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1765148658; x=1765753458; darn=nycstudents.net;
+        h=to:from:subject:message-id:gmsai:date:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pjVEjgopeiAGIti5t/mLhP/8lkeVbiCLuYt2ZZFx5y8=;
+        b=ROxClw1lxwqbUtAn3Y+vXT8PXZzjaEZyAgTuLeWEHhWlqpakcinVNWlqHyka8srDvA
+         fWnSc4euw7C7HHv7TMpPn/mL8McrALzifmjMfFoWVwnshhZdn6vmKMukkppm3PA1ptwa
+         LDFZXscEqjId/1ajhd+LtcMmz78iO5i2HoNuGaVPi1fq7ecB56FyCIjjbalJ/gIoSrj+
+         Yf9zeq3TVuio9KFO5BRb1TlCfewSWs3mY6IXJjFn7h3Siga8S8NSXmHd5mq86JfktbQl
+         sVtAdnFk3tJfTmYvosJrVHRst8/vjW1eZxvN+3Gf8DBxRIg5nTff81CNTqR7tZByhrwB
+         qo6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765148658; x=1765753458;
+        h=to:from:subject:message-id:gmsai:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pjVEjgopeiAGIti5t/mLhP/8lkeVbiCLuYt2ZZFx5y8=;
+        b=fGhJV8PdJpTRNqEWLJ2gbCS9bDHMuYyi4Qg/6cUgIbZ1giQ/HqefpT1syxOBkOgSQJ
+         xPcJd25CWIE7HJM73TFjneqQchE1Kp7p00VvpaXzlCBeZi2n3Eh8lxQwcEzMZxLGyMP9
+         TeYTpv0k9EJriuQE/DuRPO4rK9bz5QoPNdGB7tpDmgbq8V7w1YXpRiBGoRvi3D2mNBqU
+         rBt9bvWQZUbwuoj01BQGyDXZhGvbggGhzA1EWK0F+XZVwk6l0jDqYMFJFY72cHlIfa3J
+         zjaHccaEke4Cpbn4MNPSB9nhuVf1ViGeO6EHVq2qaso0JfRdkyucmJu72rFFeLJ9lDGP
+         lK9Q==
+X-Gm-Message-State: AOJu0YyB1GF99VcFKFBx1BpNuGEeAKRI85hWdH/fcmQnBZ+n64EngLDT
+	V4j7gtSTFkNy97/JaoU5L98kZTSNbL5/uF+gtM8j02VNvWMEvZJBVQ/EwFXFUITZmYMk6hfGfj9
+	afZcaGrCFCKriAmTE6RJ2hGFrZ8jt1J4buAYb6ugm/XKh
+X-Google-Smtp-Source: AGHT+IFxW9rBYQgHi7I9MzOmUfYXZJ6QtN4rMLrdLuKnXkjcENm9eIjAKu8c9Sm6mVdUROiJgg3RXUTnNjEabNbFxXByr5sfazY=
+MIME-Version: 1.0
+X-Received: by 2002:a4a:e913:0:b0:659:9a49:9040 with SMTP id
+ 006d021491bc7-6599a8b9af5mr2415778eaf.11.1765148658108; Sun, 07 Dec 2025
+ 15:04:18 -0800 (PST)
+Date: Sun, 07 Dec 2025 15:04:18 -0800
+gmsai: false
+X-Notifications: NEW_ASSIGNMENT:801175197796:801175197995-1765148607055
+X-Notifications-Bounce-Info: AU8hbIku1aKbpi_j20O5OkMA7FBgYnNuhsxgHokOELBNrJPe-zSY9ilejaj52Y9_I3YRg2sQbU1ivxF3Ev2anwuxOtra7fCo9WZaxuy9Dd_20vxbSpk1VnDOF8Dope6L0kXbBSo6k_ORIBPSVQo9umWj1TTUJdw1TUtGMzqktYKPJp5GR23vnK9L1OlLD4jd7FIcHP0qzD7at8qGTkzMFF_h7pdxtzDb3UV4Lfj-W5D94MkiU8tDUoSrlM99ajEvbxCFAOo8aqOntTDlc1Ip_MyxflPYO0nJVutfhOggFzI8rG1MNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <BVTbatOWUx4ibuhCfoiZng@notifications.google.com>
+Subject: New assignment: "Area Between Curves"
+From: "James Bathurst (Classroom)" <no-reply@classroom.google.com>
+To: tylerh144@nycstudents.net
+Content-Type: multipart/alternative; boundary="000000000000be1564064564b2e7"
+
+--000000000000be1564064564b2e7
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+
+Notification settings  
+<https://accounts.google.com/AccountChooser?continue=https://classroom.google.com/s?email%3Dtylerh144@nycstudents.net&Email=tylerh144@nycstudents.net>
+Bathurst BC Calculus - Period 3/4 2  
+<https://accounts.google.com/AccountChooser?continue=https://classroom.google.com/c/ODAxMTc1MTk3Nzk2?email%3Dtylerh144@nycstudents.net&Email=tylerh144@nycstudents.net>
+New assignment
+
+Area Between Curves
+Here are the notes and sample problems for today's lesson.
+
+MP2 HW#9
+p. 442 - 443
+19, 23, 27, 31, 35, 37, 41, 45
+
+Test #7
+Thursday, December 18
+Due Dec 9
+See details  
+<https://accounts.google.com/AccountChooser?continue=https://classroom.google.com/c/ODAxMTc1MTk3Nzk2/a/ODAxMTc1MTk3OTk1/details?email%3Dtylerh144@nycstudents.net&Email=tylerh144@nycstudents.net>
+Posted on 6:03 PM, Dec 7 (EST) by James Bathurst
+
+Google LLC 1600 Amphitheatre Parkway, Mountain View, CA 94043 USA
+This email was sent to you because you indicated that you'd like to receive  
+email notifications from Google Classroom. If you don't want to receive  
+emails like this, you can unsubscribe or change your settings  
+<https://accounts.google.com/AccountChooser?continue=https://classroom.google.com/s?email%3Dtylerh144@nycstudents.net&Email=tylerh144@nycstudents.net>.
+
+--000000000000be1564064564b2e7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><link href=3Dhttps://fonts.googleapis.com/css?family=3DRoboto:4=
+00,500,700,bold|Google+Sans:400,500,700,bold rel=3Dstylesheet><style>@media=
+ (forced-colors: active) and (prefers-color-scheme: dark){.classroomTitleDa=
+rk{content: url("https://www.gstatic.com/classroom/email/classroom_type_whi=
+te.png");}}</style></head><body style=3D"font-family: Roboto,Helvetica,Aria=
+l,sans-serif; margin: 0; padding: 0; background-color: #FFFFFF"><!--[if mso=
+]><style>body, table, div, ul, li, td, span, a { font-family: Helvetica, Ar=
+ial, sans-serif !important; }</style><![endif]--><table cellpadding=3D0 cel=
+lspacing=3D0 dir=3Dltr role=3Dpresentation align=3Dcenter style=3D"backgrou=
+nd-color: #FFFFFF; border-collapse: collapse; max-width: 632px; min-width: =
+256px; word-break: break-word; width: 100%;"><!--[if mso]><table cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"600" style=3D"bord=
+er-collapse: collapse; table-width: fixed;"><tr><td><![endif]--><tr><td sty=
+le=3D"padding: 16px;"><table cellpadding=3D0 cellspacing=3D0 dir=3Dltr role=
+=3Dpresentation><tbody><tr><td style=3D"padding-bottom: 16px;"><table cellp=
+adding=3D0 cellspacing=3D0 dir=3Dltr role=3Dpresentation style=3D"backgroun=
+d-color: #FFFFFF; border-collapse: collapse; max-width: 632px; min-width: 2=
+56px; background-color: #FFFFFF; width: 100%;" width=3D100%><tr><td><div st=
+yle=3D"float: left;line-height:32px;line-height:2.00rem;"><img alt=3D"Class=
+room Logo" style=3D"display: block; margin: 0;" height=3D32 width=3D190 src=
+=3Dhttps://www.gstatic.com/classroom/email/classroom_text_with_logo_grey700=
+.png></div><div style=3D"float: right; padding-left: 32px; vertical-align: =
+top;" align=3Dright><a href=3Dhttps://accounts.google.com/AccountChooser?co=
+ntinue=3Dhttps://classroom.google.com/s?email%3Dtylerh144@nycstudents.net&a=
+mp;Email=3Dtylerh144@nycstudents.net style=3D"text-decoration: none;"><tabl=
+e cellpadding=3D0 cellspacing=3D0 dir=3Dltr role=3Dpresentation style=3D"bo=
+rder-collapse: collapse;"><tr><td style=3D"padding-top: 6px;"><img alt=3D""=
+ style=3D"vertical-align: middle" height=3D18 width=3D18 src=3Dhttps://font=
+s.gstatic.com/s/i/googlematerialicons/notifications/v18/gm_grey-24dp/1x/gm_=
+notifications_gm_grey_24dp.png></td><td style=3D"font-family: Google Sans,R=
+oboto,Helvetica,Arial,sans-serif;font-size:14px;font-size:0.88rem;font-weig=
+ht: 500; letter-spacing: 0.25px;line-height:20px;line-height:1.25rem;color:=
+ #3C4043; padding-left: 4px; white-space: nowrap; padding-top: 8px;">Notifi=
+cation settings</td></tr></table></a></div></td></tr></table></td></tr><tr>=
+<td style=3D"padding-bottom: 24px;"><table cellpadding=3D0 cellspacing=3D0 =
+dir=3Dltr role=3Dpresentation style=3D"border: 1px solid #DADCE0; border-co=
+llapse: separate; border-radius: 8px; width: 100%;"><tr><td style=3D"paddin=
+g: 0"><table cellpadding=3D0 cellspacing=3D0 dir=3Dltr role=3Dpresentation =
+style=3D"width: 100%; border-collapse: collapse; "><tr><td style=3Dpadding:=
+&#32;24px&#32;24px&#32;0;><table cellpadding=3D0 cellspacing=3D0 dir=3Dltr =
+role=3Dpresentation style=3D"width: 100%; border-collapse: collapse; "><tr>=
+<td style=3Dborder&#45;bottom:&#32;1px&#32;solid&#32;#DADCE0;&#32;height:&#=
+32;0;padding&#45;bottom:&#32;8px;&#32;width:&#32;100%;><a href=3Dhttps://ac=
+counts.google.com/AccountChooser?continue=3Dhttps://classroom.google.com/c/=
+ODAxMTc1MTk3Nzk2?email%3Dtylerh144@nycstudents.net&amp;Email=3Dtylerh144@ny=
+cstudents.net style=3D"text-decoration: none;"><table cellpadding=3D0 cells=
+pacing=3D0 dir=3Dltr role=3Dpresentation style=3Dborder-collapse:collapse;>=
+<tr><td style=3D"font-family: Roboto,Helvetica,Arial,sans-serif;font-size:1=
+6px;font-size:1.00rem;font-weight: 400; letter-spacing: 0.1px;line-height:2=
+4px;line-height:1.50rem;color: #b80672;vertical-align: top;">Bathurst BC Ca=
+lculus - Period 3/4 2</td><td style=3D"padding-top: 3px; padding-left: 4px;=
+ vertical-align: top;"><img alt=3D"" height=3D18 src=3Dhttps://fonts.gstati=
+c.com/s/i/googlematerialicons/open_in_new/v21/gm_grey-24dp/1x/gm_open_in_ne=
+w_gm_grey_24dp.png width=3D18></td></tr></table></a></td></tr></table></td>=
+</tr></table></td></tr><tr><td style=3D"padding: 24px 24px 32px 24px; "><ta=
+ble cellpadding=3D0 cellspacing=3D0 dir=3Dltr role=3Dpresentation border=3D=
+0 style=3D"width: 100%"><tr><td colspan=3D2 style=3D"font-family: Roboto,He=
+lvetica,Arial,sans-serif;font-size:11px;font-size:0.69rem;font-weight: 500;=
+ letter-spacing: 0.8px;line-height:16px;line-height:1.00rem;text-transform:=
+ uppercase;color: #5F6368; padding-bottom: 8px;">New assignment</td></tr><t=
+r><td style=3D"padding-right: 12px; vertical-align: top; width: 40px;"><!--=
+[if mso]><v:oval xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:s=
+chemas-microsoft-com:office:word" style=3D"height:40px;width:40px;" fillcol=
+or=3D"#e52592" stroke=3D"f" /><v:image src=3D"https://fonts.gstatic.com/s/i=
+/googlematerialicons/assignment/v6/white-48dp/2x/gm_assignment_white_48dp.p=
+ng" style=3D"position: absolute; top: 8px; left: 8px; height: 24px; width: =
+24px;"/><![endif]--><span style=3Dmso-hide:all;><div style=3D"border-radius=
+: 50%;background-color: #e52592;height: 24px; width: 24px;padding: 8px;"><i=
+mg height=3D24 src=3Dhttps://fonts.gstatic.com/s/i/googlematerialicons/assi=
+gnment/v6/white-48dp/2x/gm_assignment_white_48dp.png width=3D24 role=3Dpres=
+entation /></div></span></td><td><table cellpadding=3D0 cellspacing=3D0 dir=
+=3Dltr role=3Dpresentation style=3D"width: 100%; word-break: break-word;"><=
+tr><td style=3D"font-family: Google Sans,Roboto,Helvetica,Arial,sans-serif;=
+font-size:16px;font-size:1.00rem;font-weight: 500; letter-spacing: 0.1px;li=
+ne-height:24px;line-height:1.50rem;color: #000000; padding-bottom: 4px;"><d=
+iv>Area Between Curves</div></td></tr><tr><td style=3D"font-family: Roboto,=
+Helvetica,Arial,sans-serif;font-size:14px;font-size:0.88rem;font-weight: 40=
+0; letter-spacing: 0.2px;line-height:20px;line-height:1.25rem;color: #3C404=
+3; padding: 0 24px 0 0; word-break: break-word; white-space: pre-line; padd=
+ing-bottom: 16px;"><table cellpadding=3D0 cellspacing=3D0 dir=3Dltr role=3D=
+presentation style=3D"width: 100%;"><tr><td style=3D"font-family: Roboto,He=
+lvetica,Arial,sans-serif;font-size:14px;font-size:0.88rem;font-weight: 400;=
+ letter-spacing: 0.2px;line-height:20px;line-height:1.25rem;color: #3C4043;=
+ padding: 0 24px 0 0; word-break: break-word; white-space: pre-line;"><div>=
+Here are the notes and sample problems for today&#39;s lesson.<br><br>MP2 H=
+W#9<br>p. 442 - 443<br>19, 23, 27, 31, 35, 37, 41, 45<br><br>Test #7<br>Thu=
+rsday, December 18</div></td></tr></table></td></tr><tr><td style=3D"font-f=
+amily: Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-size:0.75rem;f=
+ont-weight: 400; letter-spacing: 0.3px;line-height:16px;line-height:1.00rem=
+;color: #3C4043; padding-bottom: 16px;">Due Dec 9</td></tr><tr><td style=3D=
+"padding-bottom: 12px;"><table cellpadding=3D0 cellspacing=3D0 dir=3Dltr ro=
+le=3Dpresentation><tr><td style=3D"border: 1px solid #DADCE0;border-radius:=
+ 4px; padding: 8px 24px;"><a href=3Dhttps://accounts.google.com/AccountChoo=
+ser?continue=3Dhttps://classroom.google.com/c/ODAxMTc1MTk3Nzk2/a/ODAxMTc1MT=
+k3OTk1/details?email%3Dtylerh144@nycstudents.net&amp;Email=3Dtylerh144@nycs=
+tudents.net style=3D"font-family: Google Sans,Roboto,Helvetica,Arial,sans-s=
+erif;font-size:14px;font-size:0.88rem;font-weight: 500; letter-spacing: 0.2=
+5px;line-height:20px;line-height:1.25rem;color: #b80672; text-decoration: n=
+one;" target=3D_blank>See details</a></td></tr></table></td></tr><tr><td st=
+yle=3D"font-family: Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-s=
+ize:0.75rem;font-weight: 400; letter-spacing: 0.3px;line-height:16px;line-h=
+eight:1.00rem;color: #5F6368;">Posted on 6:03 PM, Dec 7 (EST) by James Bath=
+urst</td></tr></table></td></tr></table></td></tr></table></td></tr><tr><td=
+><div style=3D"float: left; margin-right: 12px;"><img alt=3D"Google logo" s=
+rc=3Dhttps://www.gstatic.com/classroom/email/google_logo_grey700.png height=
+=3D26 width=3D64></div><div style=3D"font-family: Roboto,Helvetica,Arial,sa=
+ns-serif;font-size:12px;font-size:0.75rem;font-weight: 400; letter-spacing:=
+ 0.3px;line-height:16px;line-height:1.00rem;color: #5F6368; width: 80%; flo=
+at: left; margin-top: 4px;">Google LLC 1600 Amphitheatre Parkway, Mountain =
+View, CA 94043 USA<br />This email was sent to you because you indicated th=
+at you'd like to receive email notifications from Google Classroom. If you =
+don't want to receive emails like this, you can <a href=3Dhttps://accounts.=
+google.com/AccountChooser?continue=3Dhttps://classroom.google.com/s?email%3=
+Dtylerh144@nycstudents.net&amp;Email=3Dtylerh144@nycstudents.net style=3D"c=
+olor: #5F6368;">unsubscribe or change your settings</a>.</div></td></tr></t=
+body></table></td></tr><!--[if mso]></td></tr></table><![endif]--></table><=
+/body></html>
+--000000000000be1564064564b2e7--

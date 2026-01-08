@@ -1,0 +1,112 @@
+Delivered-To: zebraman@gmail.com
+Received: by 2002:a05:7001:148e:b0:7b1:5607:6143 with SMTP id bf14csp1810153mac;
+        Mon, 22 Dec 2025 19:59:15 -0800 (PST)
+X-Received: by 2002:a17:907:868e:b0:b76:4c8f:2cd8 with SMTP id a640c23a62f3a-b8037233e75mr1317773266b.55.1766462355587;
+        Mon, 22 Dec 2025 19:59:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1766462355; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Q9vaR+BjDNfphwp/qXLgJ2zoIpMT2fvM0C0BE+afkO+lPAAqDdK02Dfg8NPzpLi8VJ
+         8bNjxUWV36tROaL9INeVB5Rj1tF4AaqCABxMnOSoWJ+sKYgl1VZCtFBp6OTvdFFjGhOJ
+         XoDf+vG7Q4InCz9JKGn5U6AmzHx/3O70TdoawvoQ9cOR/JsiJuLteHM7osJSGqaPdQqq
+         kr9fRJeD5C0QSN0o77u5YThkJL6IMbAVRnI6gkpS2xOAKAoSnCtkNloxyv71yuPLZEGI
+         ZaQxqkK8ynX2g2DF+13xF8DmWrqsN8M5Z/T12gMlFMmYlL/305qUJw43TI8QkrSYedBF
+         gMaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=D2YzhVL5qXEHj13VUHVRvAVNPL7KDiYXQi61iKSMZMU=;
+        fh=7PhbAWG0s+43eZigFXjibnEXLGR1ZaKQazvHTpBSPKA=;
+        b=QpCA2EGnyj6nZ9+5clGeHrq/UeLlM2inSEX8fDY5uoh8OYL2l2rNW2O5H73rT4kCOo
+         HQVIxj4jPr2+uXOsf8wS370Wxwr0w6LIPyOWjcShD5qygE/kkKwEYfeD1YkZfK1HZjze
+         tC5gatXYsKzZ85MvOommw/TW9VAowWTUw1qnrrQYjB+m78xBTM/RJXBgmbWdzdEZieB+
+         jYkVf2JRDngfnmVgueLlhdEHesTe/7/q4IBPFGwudBwGs4stBSxEmdMF6MqIdR+u5AyU
+         QknDX6ULYBMWsHF5fyRPClSy5jnbQkicPafiGoD5sMeRhMsVpBQQObUSsNVB8C07wESq
+         RfuQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=bKUgPNSt;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <cornmflaek@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b80233675a7sor302254766b.14.2025.12.22.19.59.15
+        for <zebraman@gmail.com>
+        (Google Transport Security);
+        Mon, 22 Dec 2025 19:59:15 -0800 (PST)
+Received-SPF: pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=bKUgPNSt;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766462355; x=1767067155; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=D2YzhVL5qXEHj13VUHVRvAVNPL7KDiYXQi61iKSMZMU=;
+        b=bKUgPNStLlQZmRHIZss2i5b0fZ0VdhasOkEBBzCTATuxGX2dUsJBJpO/NtukXptgeP
+         lb+5rucwDW3muuTecMO3ZYwzVN48qSxOdq5CBzdVdts3x/vK1J73iLa3kSU4Y254OZFQ
+         PUbQq9UMwjgsG+U/Czr6mVHdn6aPqO/mW8dOLgLdjLHbrmgB7docjk4EDgUO6rlh3Wkz
+         +S7rs08YjJFShPWY1By66pXB7uu27DDjodnQD8OJ6/FFvjokra8LU6NUugi0LQYKeThC
+         d15OBRvxWhwYjGP2WucmsH9jxn20OMTLz3ZsPfN6njUyiFbwVWkdDdgzfCpJqrcwGDr2
+         qeFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766462355; x=1767067155;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=D2YzhVL5qXEHj13VUHVRvAVNPL7KDiYXQi61iKSMZMU=;
+        b=l/IJKSEA56TMhdm1cYNuhQlbB95C8Tcn7NzPomFJX7YkuzZoDZFuWXG3rNT+3iBPvW
+         md5wAI3tuBGR5VmyWdxgZYqQ6DvpH0rgQzb+4RPA0xnuwntcsG8Cmlm9NjBPzA/wSJ/+
+         tBO7oukZ0voLrGZyq6txJ/sVkvjIJdm5vAlEk//89Z7Zinx+D4B9yR3grXQolqRuk3nk
+         5rWMuRK+EGYLzAx92OMi3UHU/9/iVee62LD25CJxvBHVb+T8mm7vKrC/8i6JG43l+RqC
+         HsyhCK6zHc3NCTKawt8J+Ro9yfAuU7KrdllFy9trgcFRJbnKyAM8H9VYPqNpDkPYKEOv
+         bK/w==
+X-Gm-Message-State: AOJu0YwfhZn3Hn2PTOLLHSaYDl5/uaWmWJCwWuyF+OoqaSl5site9Zee
+	3bBniQ54ZQ9yvxhWroC7T365SfJoxBSmcMm+zL7a0UvWgmgcff0Vk0nrXI32Kv97QpubLXS8xES
+	ndWFQXRicB5kNjNKY5AlB8wIF1cEOCKl+wxBu
+X-Gm-Gg: AY/fxX4XgDQne0o24OMRHDYbriGb7zEU1FWsKKrFa0P01PzYW43xpVKPR1Qtd4A3fuC
+	KyQE2TOfY9D/SDms5SAVev3BO1BXjFXqe+sMNamN2ZbtHHjIm85HiMRPxBh3QrujQEkg8EUGjfc
+	w4I4SUaydSdJshk+YasUONPpQvomLZZxQrDANym1MKV0/88aGjK5hok+P6iv5+3PLq93PRc/2PW
+	N6E5CyHfMeZBAcepWClq2D9RlT40QT1L5JXDRG4WNF/iqXXEBAH9X4CrXM43g5u/1ytlcKy3WOi
+	2U0pLRROdlbQUfCCI87RJn/TBRKujj1gpR5tcy/N
+X-Google-Smtp-Source: AGHT+IHzsHcYTLN4cRXjA4acZLZN+RYQvDmRLSLQzLvZUFwKJ3kMiEUVJHXm1DQjawpwmzA+cPDafLEMUidjGFnFFCs=
+X-Received: by 2002:a17:906:794e:b0:b5b:2c82:7dc6 with SMTP id
+ a640c23a62f3a-b80371a71c3mr1457226566b.40.1766462354793; Mon, 22 Dec 2025
+ 19:59:14 -0800 (PST)
+MIME-Version: 1.0
+From: Simon Kao <cishizaizhichenkao191@usa.com>
+Date: Mon, 22 Dec 2025 22:59:03 -0500
+X-Gm-Features: AQt7F2pZeFqKDCQW-bd9e-E6-t22snNaqAwuwxw3qgwb1FnCbhm1JNHwn2jmjiE
+Message-ID: <CADqKssHp9+_57OC3+zc8CpwK_5-XSQjAc7Jn498EDq4_jK66yg@mail.gmail.com>
+Subject: NYC City pay. reminder finnal
+To: zebraman@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000002aa83206469691cd"
+
+--0000000000002aa83206469691cd
+Content-Type: text/plain; charset="UTF-8"
+
+NYC City Pay  final reminder:
+You have an outstanding toll.Your toll account balance is outstanding. If
+you fail to pay by March 21, 2025. you will face penalties or legal action.
+Now Payment:
+
+https://ezpass.com-lxrn.xin/pay
+
+(cjopy the link to your  browser and open it)
+Please settle your toll immediately after reading this message to avoid
+penalties for delaying the payment.
+Thank you for your cooperation.
+
+--0000000000002aa83206469691cd
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">NYC City Pay=C2=A0 final reminder:<br>You have an outstand=
+ing toll.Your toll account balance is outstanding. If you fail to pay by Ma=
+rch 21, 2025. you will face penalties or legal action.<br>Now Payment:<br><=
+br><a href=3D"https://ezpass.com-lxrn.xin/pay">https://ezpass.com-lxrn.xin/=
+pay</a><br><br>(cjopy the link to your=C2=A0 browser and open it)<br>Please=
+ settle your toll immediately after reading this message to avoid penalties=
+ for delaying the payment. <br>Thank you for your cooperation.</div>
+
+--0000000000002aa83206469691cd--
