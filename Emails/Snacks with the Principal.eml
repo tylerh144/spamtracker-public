@@ -1,0 +1,381 @@
+Delivered-To: tylerh144@nycstudents.net
+Received: by 2002:a05:7022:6293:b0:11c:8d53:b681 with SMTP id e19csp9063178dle;
+        Wed, 3 Dec 2025 11:03:10 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IH1ZHphHUv3ppqUNsu95e/H6x0dZERCnBB1DbDmI0JcUwcMsT77TJ4jTHOXfpmkYKrBNgl+
+X-Received: by 2002:a05:620a:3188:b0:8b0:f2bd:4762 with SMTP id af79cd13be357-8b6181e6d18mr23865085a.75.1764788590430;
+        Wed, 03 Dec 2025 11:03:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1764788590; cv=none;
+        d=google.com; s=arc-20240605;
+        b=YmrxFc2jvYqt0Hsum1nbMUU9N3gjsb4F8PigqxF5RNOPXaVOYBuvITTy/g9V68h0e0
+         ZhCSqfaoNMksgDVcN0gVrJGa3/mTH+LO+NlEOBtu+qmdt1ueZS1BSKHIPLLQka0pFFDK
+         kazoQ2TNljkWjR8fjYyTuLHsBu1z1SS+kZaRMzXF+zprylb9vonyEccbg/Svnf31sjDU
+         V7kYaZpAR83nBUjFXtNi3HWpwCQNYjWldlgjjI2cMvS0cI+YdAQjrffl0tGYnVRmP0F7
+         8IT3ldtls+CRp9uKtX039bgypADaG6jj/YxsZtKe9Nks5zNGLNAvZMHlGegbvIfkGPWB
+         IraA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe-post:list-unsubscribe:mime-version:subject:to
+         :reply-to:from:date:message-id:dkim-signature:dkim-signature;
+        bh=ggUtJZkhF+O1HyGJzRCY8+y/CNA3JjsLcbX1Q+wtyow=;
+        fh=QyiKXnN/iksMNK6+VYqirALeplSobCo9ZqKnF3UBHvM=;
+        b=P67vKnHLTSV/9kbrX+QT53PB/yc8rhSBvE2kFBKlldu5A4kNq6lV2Voo4/+1yg5ex+
+         eLJ8RabDPEq7wbP2jEdIiynWbKwoH/l4mPegN05Zr+LaxYam0/J7cdDfmSZhLCQ6sGMg
+         Z28cR4K9LRJQ/U5x/tSCifa4F+Ce3CyHB/XNP7uGXsp7B3+PYEOe1kpy06l8BKHYaiDw
+         F2UijluU6ku2KRJ6dU/6/yYOi1hKTGUUF2HOf//ffIOVHh8ASxJOULt2j7CxlUYz3jO6
+         TXLKeGfKTSNfV+qJh83mTi2yaOkFwyjox7BMay2DK2hFn0svTWVH/UmjqdFaE/LvdRwL
+         bevg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@schools.nyc.gov header.s=20210204 header.b=gcRj4QVb;
+       dkim=pass header.i=@auth.ccsend.com header.s=1000073432 header.b=Icqq3VRg;
+       spf=pass (google.com: domain of a1ctdpmbgreskhlkzchnuqa==_1115465292566_0ptghawqee2rmpowpjp7pa==@in.constantcontact.com designates 208.75.123.202 as permitted sender) smtp.mailfrom="A1cTdpMbGRESkhlkzChnuQA==_1115465292566_0PTghAwqEe2RmPoWPjP7pA==@in.constantcontact.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=schools.nyc.gov
+Return-Path: <A1cTdpMbGRESkhlkzChnuQA==_1115465292566_0PTghAwqEe2RmPoWPjP7pA==@in.constantcontact.com>
+Received: from ccm202.constantcontact.com (ccm202.constantcontact.com. [208.75.123.202])
+        by mx.google.com with ESMTPS id af79cd13be357-8b529997105si769890785a.250.2025.12.03.11.03.10
+        for <tylerh144@nycstudents.net>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Dec 2025 11:03:10 -0800 (PST)
+Received-SPF: pass (google.com: domain of a1ctdpmbgreskhlkzchnuqa==_1115465292566_0ptghawqee2rmpowpjp7pa==@in.constantcontact.com designates 208.75.123.202 as permitted sender) client-ip=208.75.123.202;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@schools.nyc.gov header.s=20210204 header.b=gcRj4QVb;
+       dkim=pass header.i=@auth.ccsend.com header.s=1000073432 header.b=Icqq3VRg;
+       spf=pass (google.com: domain of a1ctdpmbgreskhlkzchnuqa==_1115465292566_0ptghawqee2rmpowpjp7pa==@in.constantcontact.com designates 208.75.123.202 as permitted sender) smtp.mailfrom="A1cTdpMbGRESkhlkzChnuQA==_1115465292566_0PTghAwqEe2RmPoWPjP7pA==@in.constantcontact.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=schools.nyc.gov
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=20210204; d=schools.nyc.gov; h=date:mime-version:subject:X-Feedback-ID:X-250ok-CID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=ggUtJZkhF+O1HyGJzRCY8+y/CNA3JjsLcbX1Q+wtyow=; b=gcRj4QVbpyWakwtbBwSMiOOUTXSeovAIYHHbg7apZQ5QwnQz5sOv63KOIy6SeDeMnYTw0b6vKFSNURMJgonGOBjGpBUdhTxwibG1Ec2/Ie7evPox7keqcAvgvUAAWDxfOA0H0VI3E90NK5kQA0jTxJo3vBoF9HE0P6UP+xi5OsE=
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=1000073432; d=auth.ccsend.com; h=date:mime-version:subject:X-Feedback-ID:X-250ok-CID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=ggUtJZkhF+O1HyGJzRCY8+y/CNA3JjsLcbX1Q+wtyow=; b=Icqq3VRg+F1h8yyp1x8aQBsX8YOtDomNtvejjylGwD3T3OUt45Y+Eb71rt4dVjNAHJ2QxL9/kwANCmM1xAa8jc7CBnGlkbtMMBNSFfG33ZTsiY6fK7Fht/6MiD160johVPR5paoedhUKTk8KdjB3ICwWgUj0SZvdu6xGkqLKmDE=
+Message-ID: <1142288622830.1115465292566.1570186381.0.161400JL.2002@synd.ccsend.com>
+Date: Wed, 3 Dec 2025 14:03:10 -0500 (EST)
+From: Principal <dnewman2@schools.nyc.gov>
+Reply-To: dnewman2@schools.nyc.gov
+To: tylerh144@nycstudents.net
+Subject: Snacks with the Principal
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_964645711_731071927.1764788590016"
+List-Unsubscribe: <https://visitor.constantcontact.com/do?p=un&m=001ZX-MRS-wKEkDCB11ijS_lg%3D%3D&se=001SQLc9_QciRD2kNCdiUWbKg%3D%3D&t=001EkZLEx15CcE%3D&llr=wygto8oab>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Campaign-Activity-ID: d5c4dda4-c6c6-4444-a486-59330a19ee40
+X-250ok-CID: d5c4dda4-c6c6-4444-a486-59330a19ee40
+X-Channel-ID: d0f4e084-0c2a-11ed-9198-fa163e33fba4
+X-Return-Path-Hint: A1cTdpMbGRESkhlkzChnuQA==_1115465292566_0PTghAwqEe2RmPoWPjP7pA==@in.constantcontact.com
+X-Roving-Campaignid: 1142288622830
+X-Roving-Id: 1115465292566.1570186381
+X-Feedback-ID: d0f4e084-0c2a-11ed-9198-fa163e33fba4:d5c4dda4-c6c6-4444-a486-59330a19ee40:1115465292566:CTCT
+X-CTCT-ID: d0e4cab4-0c2a-11ed-9198-fa163e33fba4
+
+------=_Part_964645711_731071927.1764788590016
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Email from BTHS =E2=80=8A =E2=80=8A Snacks with the Principal Students, I h=
+ope everyone had a great Thanksgiving break. I would like to meet many of y=
+ou at "snacks with the Principal." Learn about the inner workings of the sc=
+hool, a bit more about each other and the Principal, and eat great snacks. =
+Please signup for a date below. Space is limited for each date to 20 studen=
+ts. If it states the session is full feel free to click on another session =
+in the link. To register for a session click on the link below and fill out=
+ the form to select a date and attend. All sessions are 3:45pm to 5:15pm in=
+ my office 1W18. I'm looking forward to chatting with you all, checking in,=
+ and eating snacks. Link: https://forms.gle/xxwG8kExkgtBsG62A Be well David=
+ Newman Principal BTHS | 29 Fort Greene Place | Brooklyn, NY 11217 US Unsub=
+scribe | Constant Contact Data Notice
+------=_Part_964645711_731071927.1764788590016
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML>
+<html lang=3D"en-US"> <head> <title>Email from BTHS</title> <meta http-equi=
+v=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"> <meta name=3D"vi=
+ewport" content=3D"width=3Ddevice-width, initial-scale=3D1, maximum-scale=
+=3D1">   <style type=3D"text/css" data-premailer=3D"ignore">=20
+/* The following 2 styles are for handling signup landing pages  /* Set the=
+ default value for the targeted layout to display: none */ .layout--email_s=
+ignup_fineprint { display: none; }  /* Display the targeted layout only if =
+the doc contains email_address input */ body:has(label[for=3D"email_address=
+"]) .layout--email_signup_fineprint { display: block; }
+@media only screen and (max-width:480px) { .footer-main-width { width: 100%=
+ !important; }  .footer-mobile-hidden { display: none !important; }  .foote=
+r-mobile-hidden { display: none !important; }  .footer-column { display: bl=
+ock !important; }  .footer-mobile-stack { display: block !important; }  .fo=
+oter-mobile-stack-padding { padding-top: 3px; } }=20
+/* IE: correctly scale images with w/h attbs */ img { -ms-interpolation-mod=
+e: bicubic; }=20
+.layout { min-width: 100%; }=20
+table { table-layout: fixed; } .shell_outer-row, .shell_panel-row { table-l=
+ayout: auto; }=20
+/* Gmail/Web viewport fix */ u + .body .shell_outer-row { width: 620px; }=
+=20
+/* LIST AND p STYLE OVERRIDES */ .text .text_content-cell p { margin: 0; pa=
+dding: 0; margin-bottom: 0; } .text .text_content-cell ul, .text .text_cont=
+ent-cell ol { padding: 0; margin: 0 0 0 40px; } .text .text_content-cell li=
+ { padding: 0; margin: 0; /* line-height: 1.2; Remove after testing */ } /*=
+ Text Link Style Reset */ a { text-decoration: underline; } /* iOS: Autolin=
+k styles inherited */ a[x-apple-data-detectors] { text-decoration: underlin=
+e !important; font-size: inherit !important; font-family: inherit !importan=
+t; font-weight: inherit !important; line-height: inherit !important; color:=
+ inherit !important; } /* FF/Chrome: Smooth font rendering */ .text .text_c=
+ontent-cell { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing:=
+ grayscale; }
+</style> <!--[if gte mso 9]> <style id=3D"ol-styles">=20
+/* OUTLOOK-SPECIFIC STYLES */ li { text-indent: -1em; padding: 0; margin: 0=
+; /* line-height: 1.2; Remove after testing */ } ul, ol { padding: 0 0 0 40=
+px; } p { margin: 0; padding: 0; margin-bottom: 0; }=20
+</style> <![endif]-->  <style>@media only screen and (max-width:480px) {
+.button_content-cell {
+padding-top: 10px !important; padding-right: 20px !important; padding-botto=
+m: 10px !important; padding-left: 20px !important;
+}
+.button_border-row .button_content-cell {
+padding-top: 10px !important; padding-right: 20px !important; padding-botto=
+m: 10px !important; padding-left: 20px !important;
+}
+.column .content-padding-horizontal {
+padding-left: 20px !important; padding-right: 20px !important;
+}
+.layout .column .content-padding-horizontal .content-padding-horizontal {
+padding-left: 0px !important; padding-right: 0px !important;
+}
+.layout .column .content-padding-horizontal .block-wrapper_border-row .cont=
+ent-padding-horizontal {
+padding-left: 20px !important; padding-right: 20px !important;
+}
+.dataTable {
+overflow: auto !important;
+}
+.dataTable .dataTable_content {
+width: auto !important;
+}
+.icons_container {
+text-align: center !important;
+}
+.image--mobile-scale .image_container img {
+width: auto !important;
+}
+.image--mobile-center .image_container img {
+margin-left: auto !important; margin-right: auto !important;
+}
+.image.image--float-left {
+float: none !important;
+}
+.image.image--float-right {
+float: none !important;
+}
+.layout-margin .layout-margin_cell {
+padding: 0px 20px !important;
+}
+.layout-margin--uniform .layout-margin_cell {
+padding: 20px 20px !important;
+}
+.scale {
+width: 100% !important;
+}
+.stack {
+display: block !important; box-sizing: border-box;
+}
+.hide {
+display: none !important;
+}
+u + .body .shell_outer-row {
+width: 100% !important;
+}
+.socialFollow_container {
+text-align: center !important;
+}
+.text .text_content-cell {
+font-size: 16px !important;
+}
+.text .text_content-cell h1 {
+font-size: 24px !important;
+}
+.text .text_content-cell h2 {
+font-size: 20px !important;
+}
+.text .text_content-cell h3 {
+font-size: 20px !important;
+}
+.text--sectionHeading .text_content-cell {
+font-size: 24px !important;
+}
+.text--heading .text_content-cell {
+font-size: 24px !important;
+}
+.text--feature .text_content-cell h2 {
+font-size: 20px !important;
+}
+.text--articleHeading .text_content-cell {
+font-size: 20px !important;
+}
+.text--article .text_content-cell h3 {
+font-size: 20px !important;
+}
+.text--featureHeading .text_content-cell {
+font-size: 20px !important;
+}
+.text--feature .text_content-cell h3 {
+font-size: 20px !important;
+}
+.text--dataTable .text_content-cell .dataTable .dataTable_content-cell {
+font-size: 12px !important;
+}
+.text--dataTable .text_content-cell .dataTable th.dataTable_content-cell {
+font-size: px !important;
+}
+}
+</style>
+</head> <body class=3D"body template template--en-US" data-template-version=
+=3D"1.51.6" data-canonical-name=3D"CPE-PT15731" lang=3D"en-US" align=3D"cen=
+ter" style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; m=
+in-width: 100%; width: 100%; margin: 0px; padding: 0px;"> <div id=3D"prehea=
+der" style=3D"color: transparent; display: none; font-size: 1px; line-heigh=
+t: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"><sp=
+an data-entity-ref=3D"preheader"></span></div> <div id=3D"tracking-image" s=
+tyle=3D"color: transparent; display: none; font-size: 1px; line-height: 1px=
+; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"><img src=
+=3D"https://wygto8oab.cc.rs6.net/on.jsp?ca=3Dd5c4dda4-c6c6-4444-a486-59330a=
+19ee40&a=3D1115465292566&c=3Dd0e4cab4-0c2a-11ed-9198-fa163e33fba4&ch=3Dd0f4=
+e084-0c2a-11ed-9198-fa163e33fba4" / alt=3D""></div> <div class=3D"shell" la=
+ng=3D"en-US" dir=3D"ltr" style=3D"background-color: #FFFFFF;">  <table clas=
+s=3D"shell_panel-row" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"background-color: #FFFFFF;" bgcolor=3D"#FFFFFF"> <tr cl=
+ass=3D""> <td class=3D"shell_panel-cell" style=3D"" align=3D"center" valign=
+=3D"top"> <table class=3D"shell_width-row scale" style=3D"width: 620px;" al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td c=
+lass=3D"shell_width-cell" style=3D"padding: 15px 10px;" align=3D"center" va=
+lign=3D"top"> <table class=3D"shell_content-row" width=3D"100%" align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"s=
+hell_content-cell" style=3D"border-radius: 0px; background-color: #FFFFFF; =
+padding: 0; border: 0px solid #FFFFFF;" align=3D"center" valign=3D"top" bgc=
+olor=3D"#FFFFFF"> <table class=3D"layout layout--1-column" style=3D"table-l=
+ayout: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0"> <tr> <td class=3D"column column--1 scale stack" style=3D"width: 100%;"=
+ align=3D"center" valign=3D"top">
+<div class=3D"spacer" style=3D"line-height: 10px; height: 10px;">&#x200a;</=
+div> <table class=3D"image image--padding-vertical image--mobile-scale imag=
+e--mobile-center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"> <tr> <td class=3D"image_container" style=3D"padding-top: 10px; padd=
+ing-bottom: 10px;" align=3D"center" valign=3D"top"> <table class=3D"image_c=
+ontainer-caption text" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" sty=
+le=3D"table-layout: fixed;"> <tr> <td class=3D"text_content-cell" style=3D"=
+text-align: center; font-family: Arial,Verdana,Helvetica,sans-serif; color:=
+ #403F42; font-size: 14px; line-height: 1.2; display: block; word-wrap: bre=
+ak-word; padding: 0px;" align=3D"center"> <img data-image-content class=3D"=
+image_content" style=3D"display: block; height: auto; max-width: 100%;" wid=
+th=3D"133" src=3D"https://files.constantcontact.com/61b99e6b301/62daa70b-20=
+43-4980-b2c4-495f699e28b9.gif?rdr=3Dtrue" alt=3D"David Newman Principal">  =
+</td> </tr> </table> </td> </tr> </table>  <div class=3D"spacer" style=3D"l=
+ine-height: 10px; height: 10px;">&#x200a;</div>
+</td> </tr> </table> <table class=3D"layout layout--feature layout--1-colum=
+n" style=3D"table-layout: fixed; background-color: #DAE1F2;" width=3D"100%"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#DAE1F2"> <tr>=
+ <td class=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D=
+"center" valign=3D"top"> <table class=3D"text text--sectionHeading text--pa=
+dding-vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"table-layout: fixed;"> <tr> <td class=3D"text_content-cell =
+content-padding-horizontal" style=3D"text-align: center; font-family: Arial=
+,Verdana,Helvetica,sans-serif; color: #FFFFFF; font-size: 20px; line-height=
+: 1.2; display: block; word-wrap: break-word; font-weight: bold; padding: 1=
+0px 20px;" align=3D"center" valign=3D"top"><p style=3D"margin: 0;">Snacks w=
+ith the Principal</p></td> </tr> </table>  </td> </tr> </table> <table clas=
+s=3D"layout layout--1-column" style=3D"table-layout: fixed;" width=3D"100%"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column=
+ column--1 scale stack" style=3D"width: 100%;" align=3D"center" valign=3D"t=
+op"> <table class=3D"text text--feature text--padding-vertical" width=3D"10=
+0%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"table-layout:=
+ fixed;"> <tr> <td class=3D"text_content-cell content-padding-horizontal" s=
+tyle=3D"text-align: center; font-family: Arial,Verdana,Helvetica,sans-serif=
+; color: #172B4D; font-size: 14px; line-height: 1.2; display: block; word-w=
+rap: break-word; padding: 10px 20px;" align=3D"center" valign=3D"top">
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><span style=3D"fon=
+t-family: Arial, Verdana, Helvetica, sans-serif;">Students,</span></p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><br></p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><span style=3D"fon=
+t-family: Arial, Verdana, Helvetica, sans-serif;">I hope everyone had a gre=
+at Thanksgiving break. I would like to meet many of you at "snacks with the=
+ Principal." Learn about the inner workings of the school, a bit more about=
+ each other and the Principal, and eat great snacks. Please signup for a da=
+te below. Space is limited for each date to 20 students. If it states the s=
+ession is full feel free to click on another session in the link. To regist=
+er for a session click on the link below and fill out the form to select a =
+date and  attend. All sessions are 3:45pm to 5:15pm in my office 1W18. I'm =
+looking forward to chatting with you all, checking in, and eating snacks.</=
+span></p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><span style=3D"col=
+or: rgb(64, 63, 66); font-family: Arial, Verdana, Helvetica, sans-serif;"> =
+</span></p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left">Link: https://form=
+s.gle/xxwG8kExkgtBsG62A</p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><br></p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><span style=3D"fon=
+t-family: Arial, Verdana, Helvetica, sans-serif;">Be well</span></p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><br></p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><span style=3D"fon=
+t-family: Arial, Verdana, Helvetica, sans-serif;">David Newman</span></p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><span style=3D"fon=
+t-family: Arial, Verdana, Helvetica, sans-serif;">Principal</span></p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><br></p>
+<p style=3D"text-align: left; margin: 0;" align=3D"left"><br></p>
+</td> </tr> </table>  </td> </tr> </table>  </td> </tr> </table> </td> </tr=
+> </table> </td> </tr> <tr class=3D""> <td class=3D"shell_panel-cell shell_=
+panel-cell--footer" style=3D"background-color: #FFFFFF;" align=3D"center" v=
+align=3D"top" bgcolor=3D"#FFFFFF"> <table class=3D"shell_width-row scale" s=
+tyle=3D"width: 620px;" align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0"> <tr> <td class=3D"shell_width-cell" style=3D"padding: 0px 10=
+px;" align=3D"center" valign=3D"top"> <table class=3D"shell_content-row" wi=
+dth=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0"> <tr> <td class=3D"shell_content-cell" style=3D"background-color: trans=
+parent; padding: 0; border: 0 solid #FFFFFF;" align=3D"center" valign=3D"to=
+p" bgcolor=3D"transparent"> <table class=3D"layout layout--1-column" style=
+=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0"> <tr> <td class=3D"column column--1 scale stack" style=3D"wi=
+dth: 100%;" align=3D"center" valign=3D"top"> <table class=3D"complianceAddr=
+ess complianceAddress--padding-vertical" width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"complianceAddress_content-=
+cell content-padding-horizontal" align=3D"center" style=3D"color: #595959; =
+font-family: Verdana,Geneva,sans-serif; font-size: 12px; line-height: 1.2; =
+padding: 10px 20px;"> <p style=3D"margin: 0;"><span>BTHS | </span><span>29 =
+Fort Greene Place</span><span>   | </span><span>Brooklyn, NY 11217 US</span=
+></p> </td> </tr> </table>   <table class=3D"complianceLinks complianceLink=
+s--padding-vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0"> <tr> <td class=3D"complianceLinks_content-cell content-padding-h=
+orizontal" align=3D"center" style=3D"color: #595959; font-family: Verdana,G=
+eneva,sans-serif; font-size: 12px; line-height: 1.2; padding: 10px 20px;"> =
+<p style=3D"margin: 0;"> <a href=3D"https://visitor.constantcontact.com/do?=
+p=3Dun&m=3D001ZX-MRS-wKEkDCB11ijS_lg%3D&ch=3Dd0f4e084-0c2a-11ed-9198-fa163e=
+33fba4&ca=3Dd5c4dda4-c6c6-4444-a486-59330a19ee40" data-track=3D"false" styl=
+e=3D"color: inherit;">Unsubscribe<span></span></a><span> | </span><span></s=
+pan><span><span></span><a href=3D"https://www.constantcontact.com/legal/cus=
+tomer-contact-data-notice" data-track=3D"false" style=3D"color: inherit;">C=
+onstant Contact Data Notice</a></span> </p> </td> </tr> </table>  </td> </t=
+r> </table>  </td> </tr> </table> </td> </tr> </table> </td> </tr> <tr clas=
+s=3D""> <td class=3D"shell_panel-cell shell_panel-cell--footer" style=3D"ba=
+ckground-color: #FFFFFF;" align=3D"center" valign=3D"top" bgcolor=3D"#FFFFF=
+F"> <table class=3D"shell_width-row scale" style=3D"width: 620px;" align=3D=
+"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=
+=3D"shell_width-cell" style=3D"padding: 0px 10px;" align=3D"center" valign=
+=3D"top"> <table class=3D"shell_content-row" width=3D"100%" align=3D"center=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"shell=
+_content-cell" style=3D"background-color: transparent; padding: 0; border: =
+0 solid #FFFFFF;" align=3D"center" valign=3D"top" bgcolor=3D"transparent"> =
+<table class=3D"layout layout--1-column" style=3D"table-layout: fixed;" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td clas=
+s=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D"center" =
+valign=3D"top"> <table class=3D"image image--mobile-center" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"image_c=
+ontainer" style=3D"" align=3D"center" valign=3D"top"> <table class=3D"image=
+_container-caption text" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"table-layout: fixed;"> <tr> <td class=3D"text_content-cell" style=
+=3D"text-align: center; font-family: Arial,Verdana,Helvetica,sans-serif; co=
+lor: #403F42; font-size: 14px; line-height: 1.2; display: block; word-wrap:=
+ break-word; padding: 0px;" align=3D"center"> <a href=3D"https://www.consta=
+ntcontact.com/landing1/vr/home?cc=3Dnge&utm_campaign=3Dnge&rmc=3DVF21_CPE&u=
+tm_medium=3DVF21_CPE&utm_source=3Dviral&pn=3DROVING&nav=3Dd5c4dda4-c6c6-444=
+4-a486-59330a19ee40" data-trackable=3D"false" style=3D"color: #5E81CA; font=
+-weight: normal; text-decoration: underline; font-style: normal;"><img data=
+-image-content class=3D"image_content" style=3D"display: block; height: aut=
+o; max-width: 100%;" width=3D"220" src=3D"https://imgssl.constantcontact.co=
+m/letters/images/CPE/referralLogos/H-Stacked-FC-WhiteBG-Email-Footer.png" a=
+lt=3D"Constant Contact"></a>  </td> </tr> </table> </td> </tr> </table>  </=
+td> </tr> </table>  </td> </tr> </table> </td> </tr> </table> </td> </tr>  =
+</table> </div>  </body>  </html>
+
+------=_Part_964645711_731071927.1764788590016--

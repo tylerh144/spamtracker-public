@@ -1,0 +1,436 @@
+Delivered-To: zebraman@gmail.com
+Received: by 2002:a05:7001:148e:b0:7b1:5607:6143 with SMTP id bf14csp1808093mac;
+        Mon, 22 Dec 2025 19:51:01 -0800 (PST)
+X-Received: by 2002:a17:907:97c4:b0:b73:6c97:af49 with SMTP id a640c23a62f3a-b80371751fbmr1378242766b.30.1766461861269;
+        Mon, 22 Dec 2025 19:51:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1766461861; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NXy2G1xPXQL0p8eI/GUr9ry0ESYzPu9R7ofIIHUXPkP0BdO5DIjgQiOUtacFcCcW5d
+         T3OxgLYECb7Ng+MqIUwNunPj3p8SbSQ6B3jv//dqMwXTONYPIxtm/ZtUzQNSHUSOp5rE
+         ZFekkdtjZSD7o3thaRPucfDCnTxyRsZz2owFIx0kz5xO76jaHsEPLIrUB1En0+cnr6aQ
+         3GfFRCKJAXGhmQKH4xj1ikJho1ArcLsUVLskNKwc68kKBaaqaYGEBm2GmzHQBcVPbamC
+         kM6PNZvImuoWp0TdtTO3TCs37F7BGY2crsXTay0KYxFTq+bL0rntcdB0bbKyTCRjo6ZN
+         lX3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=gQGwdB9pIZuApT1fQuyqrFKxboPWpDBp8g5WoTEJNTU=;
+        fh=7PhbAWG0s+43eZigFXjibnEXLGR1ZaKQazvHTpBSPKA=;
+        b=TPHFgVSE5KaoSaFjavUCNMhsPHB24xUTdTMViKIAkxn7wpWP3/0qeFdwTGar20RGWY
+         viS7Flg7YhDZ0zcbFYMA0RJAqwsuvP7p6eJVnmpVTQc0Gx98j3/cfW4oMjIA3LWZCXB7
+         m6AW5owz2JG6kHRLHN2R6v6hAXDWFwqYV6a9N84BpEDdMVBvAMNStGDEDuoLLBxVfEj+
+         J8eS692umm1qe3IWG8V6K9SZNLLWsUZVUeLUk9X8i6IOgkKrdQzNzBWD/uM4BK/VV97T
+         ZPhnS1tjb2BQiW1oU5jb91YcMW4rN3eYiVmiWioClDBKRrw1nLkm2PZ5Nd1sSJk8ZOXS
+         EKEg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=nKbPHH5C;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <cornmflaek@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b807e0d3990sor83436466b.18.2025.12.22.19.51.01
+        for <zebraman@gmail.com>
+        (Google Transport Security);
+        Mon, 22 Dec 2025 19:51:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=nKbPHH5C;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766461860; x=1767066660; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=gQGwdB9pIZuApT1fQuyqrFKxboPWpDBp8g5WoTEJNTU=;
+        b=nKbPHH5Ca40ptnHqsOEdaqk4jUbsn0QhPpnRkDzn3JvDfUQrNJaDJoS2+bi+G1RhO6
+         w6Bw4AmCN7a49uBYVsIGKXuAl6xSDQa0ppkkT6ffSSj70A4tdAVSQmKDpwbEl07C9RGX
+         /biK7W1H5k+Sx4nVTG7QA9nhtd918wJyqVgdhA32IkwGAwgKwUKsF2/D6tAUAgshxQVJ
+         CZfPjsf3YGZJmuBEM0dAn/c9x0Ij6JoMRFkIB6vMJLuv8oz8iIJAWTJiI4uRVFpvPZM2
+         eq5Hpgs2nMBkluHnUpdSjN7pbDQ46+k/1cYX5MoZ2btDuhwNxrpkt1RHxaIvHd9ghnuO
+         w9kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766461860; x=1767066660;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gQGwdB9pIZuApT1fQuyqrFKxboPWpDBp8g5WoTEJNTU=;
+        b=Eo77o1W9rZgxt6W3Cq3p/GzY7su5m82lbCJiNx4NRGKcbFtg8t8PkW9uZd3tjnCuMy
+         NVUTukl8QYUTuERu2nGShbubEkL49lQzeAhe+unv6ZoYLtodxypbgwzXi97wpcIJgt6S
+         47A+PgYA9N+dz1rYSu4vhPGufsaT+Ion8xPPu+hef9ylW13DbFHB+EDiGgbs6FxzFiJu
+         O173EWvVliAog85tC3/75qasqHwBV4x7m4ZSSo8lP67XSi2AWwVPWSZLvs59WDrAgyUV
+         sXVX8GsDPi2EiVOENOkJ+uW4mEDwz9LLCDbp4QlQwICa6yPYQoqGa+dwrzq4cBVNAnZ2
+         /RmA==
+X-Gm-Message-State: AOJu0Yx8apy0cuurBjLB4aKed81hdb91NB5Jn73MA5M2mEeU8ZcCEn28
+	cAjcl21yB5HMaRnObgRnwpYIlVwphVI1OT5cKsuKPMmKtOLHqDXG2AsIw6kKPicKiQU242ILWHI
+	hUmJ9Ws/wpf+ZQsAdFV2acHsyL5LGd4uoiGnf
+X-Gm-Gg: AY/fxX6ZXzhdLvF8j93ytS+hM68IFdKrM9nXVhoJ/+mowRZePKcfPhM0EPmd6lKuUgp
+	pQdtDz7FgSZQvlc5MMA9dtykPWMiyKRYUXls3s8mXA5B2ydlaoYlz8EfkyIwp9egNJ9Y5INhsOA
+	/2UDAL4ljn2mHS7yMQtUHf3LWal+gbUryW3/52ztR88VPwk5yNnUCRu1s31E7wGtN51EuqY3Kxa
+	SrGoQ4WZOAgbRzcbNfqMAaKKbqeWIw5yIZzQwR/ieQUacFxNB2tbq/dJ/2g4bHOM+oKq0Av6huH
+	02H/gL0m5zVggQntZWFqXFsfS2rTrIO5L5fwjMCB
+X-Google-Smtp-Source: AGHT+IHNVr3H789tOV9AOGURUBXwKTgIMbSMK5xH/erBLa4Zw+jEEwOLenRwe48xTn5bFTf8QNmPJTPatpwbkXOQrZY=
+X-Received: by 2002:a17:907:da2:b0:b79:de59:4002 with SMTP id
+ a640c23a62f3a-b8036f0a463mr1348818966b.2.1766461860432; Mon, 22 Dec 2025
+ 19:51:00 -0800 (PST)
+MIME-Version: 1.0
+From: FREE MONEY <aqfmg10uohc@usa.com>
+Date: Mon, 22 Dec 2025 22:50:49 -0500
+X-Gm-Features: AQt7F2pendps0nPn9yINQDI8KJFxjInCIjSEWAErPDil4qFdTS802VvsCRcEn9k
+Message-ID: <CADqKssGvYDU8O+b1CCTE7OEuFtQgw=uXCvR+r+pCTzXrkpPh7A@mail.gmail.com>
+Subject: December sale is on. Best offer: $1/wk.
+To: zebraman@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000b34efb064696731e"
+
+--000000000000b34efb064696731e
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+View in browser
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUTDDCY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3D6bfdg7d9l4rmp76v54nn5t140dpa3enk933f1fo7sphvf0bdoo=
+r0>
+SALE STARTS NOW
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURRRY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3Dsee7haub2ku9kqgit415lp6evqdg6p7mn3bjbd9l1qcmj78ja3=
+i0>
+[image: Unlimit yourself. With The Times.]
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURRTY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3D5ih7s36btahscml60a0125uq2ch4dvj5i4la5nv075kldthqon=
+00>
+[image: PROCEED TO CHECKOUT >]
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURRWY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3D7o9hb6d0434ss59pa1aq0e6e5nbrp2582jk1e3o394iopoefg9=
+vg>
+[image: PROCEED TO CHECKOUT >]
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURRAY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3Drbs9ijnj3gt2nnkfmkanfedj7hvp3t50ivojvf5cs5pvvrbu4s=
+o0>
+Interested in Home Delivery?
+Get 50% off print for your first year. See offer.
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURRCY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3D0dminsbicjerhsm1u8pqn0c3i36rc26g0iqucgduua6qp65oj9=
+90>
+
+Discover everything we offer.
+[image: New reporting to consider.]
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURSRY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3D2t9bt34djf658n0lln9jd91ufnn3r7ft41n6otc971amsntc2e=
+rg>
+[image: New games to play.]
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURSTY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3Dhevokn7rnfs9ptu60ajv65es9q6ucc778a9ri9f61e0qm54lp9=
+dg>
+[image: New teams to follow.]
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURSWY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3Dienvisfq9kotdr12isarq3f7l7gdn7rne80hjnv3qcu0k8d00q=
+d0>
+[image: New stories to hear.]
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURSAY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3Depl9v1i57h1jtlefk1pbnjf84cckr8j9nark31guhu76c14bqq=
+3g>
+Enjoy all of The Times:
+$1/week for your first year.
+SUBSCRIBE NOW
+<https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqai=
+zcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURSCY&_ei_=3D=
+EW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUSh=
+otiyQZ07Yol-J_mk.&_di_=3D67td8mhj2ta6uejhe42ucctfso7btbrmgpqujqqp9o25vmif23=
+cg>
+Cancel or pause anytime.
+
+--000000000000b34efb064696731e
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><table width=3D"480" align=3D"center" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" class=3D"m_-828966246293=
+12783scale" style=3D"border-collapse:collapse;border-spacing:0px;min-width:=
+480px;width:480px"><tbody><tr><td width=3D"100%" align=3D"center" style=3D"=
+border-collapse:collapse;border-spacing:0px"><table width=3D"100%" align=3D=
+"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px"><tbody><tr><td w=
+idth=3D"100%" class=3D"m_-82896624629312783hide" valign=3D"top" align=3D"ce=
+nter" style=3D"border-collapse:collapse;border-spacing:0px;font-size:12px;t=
+ext-align:center;color:rgb(153,153,153);line-height:13px;padding:16px"><a h=
+ref=3D"https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2o=
+zdgqaizcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUTDDCY&a=
+mp;_ei_=3DEW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDlj=
+wu0svSlUShotiyQZ07Yol-J_mk.&amp;_di_=3D6bfdg7d9l4rmp76v54nn5t140dpa3enk933f=
+1fo7sphvf0bdoor0" target=3D"_blank" style=3D"color:rgb(153,153,153);text-de=
+coration-line:none">View=C2=A0in=C2=A0browser</a></td></tr></tbody></table>=
+</td></tr></tbody></table><table width=3D"480" align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" class=3D"m_-828=
+96624629312783scale" style=3D"border-collapse:collapse;border-spacing:0px;m=
+in-width:480px;width:480px;background-color:rgb(112,241,164)"><tbody><tr><t=
+d width=3D"100%" align=3D"center" class=3D"m_-82896624629312783outer" style=
+=3D"border-collapse:collapse;border-spacing:0px;padding:0px 80px"><table wi=
+dth=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"border-collapse:collapse;border-spacing:=
+0px"><tbody><tr><td width=3D"100%" align=3D"center" style=3D"border-collaps=
+e:collapse;border-spacing:0px;padding:16px 0px;color:rgb(18,18,18);text-ali=
+gn:center;font-family:Arial,sans-serif;font-weight:bold;font-size:12px;line=
+-height:16px;text-transform:uppercase;letter-spacing:1px"><a href=3D"https:=
+//e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqaizcbuzb3=
+NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURRRY&amp;_ei_=3DEW2=
+tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUShoti=
+yQZ07Yol-J_mk.&amp;_di_=3Dsee7haub2ku9kqgit415lp6evqdg6p7mn3bjbd9l1qcmj78ja=
+3i0" target=3D"_blank" style=3D"color:rgb(18,18,18);text-decoration-line:no=
+ne">SALE STARTS NOW</a></td></tr></tbody></table></td></tr></tbody></table>=
+<table width=3D"480" align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" class=3D"m_-82896624629312783scale" style=
+=3D"border-collapse:collapse;border-spacing:0px;min-width:480px;width:480px=
+"><tbody><tr><td width=3D"100%" align=3D"center" style=3D"border-collapse:c=
+ollapse;border-spacing:0px;padding:0px"><table width=3D"100%" align=3D"cent=
+er" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"border-collapse:collapse;border-spacing:0px"><tbody><tr><td width=
+=3D"100%" align=3D"center" valign=3D"bottom" style=3D"border-collapse:colla=
+pse;border-spacing:0px;vertical-align:bottom;padding:0px"><a href=3D"https:=
+//e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqaizcbuzb3=
+NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURRTY&amp;_ei_=3DEW2=
+tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUShoti=
+yQZ07Yol-J_mk.&amp;_di_=3D5ih7s36btahscml60a0125uq2ch4dvj5i4la5nv075kldthqo=
+n00" target=3D"_blank" style=3D"color:rgb(0,0,0);text-decoration-line:none"=
+><img width=3D"480" border=3D"0" alt=3D"Unlimit yourself. With The Times." =
+class=3D"m_-82896624629312783hide" style=3D"display: block; width: 480px; m=
+ax-width: 480px; height: auto; font-family: arial, sans-serif; font-size: 1=
+0px;"></a></td></tr><tr></tr></tbody></table></td></tr></tbody></table><tab=
+le width=3D"480" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" class=3D"m_-82896624629312783scale" style=3D"=
+border-collapse:collapse;border-spacing:0px;min-width:480px;width:480px"><t=
+body><tr><td width=3D"100%" align=3D"center" class=3D"m_-82896624629312783o=
+uter" style=3D"border-collapse:collapse;border-spacing:0px;padding:0px 80px=
+"><table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px"><tbody><tr><td width=3D"100%" align=3D"center" valign=3D"bo=
+ttom" style=3D"border-collapse:collapse;border-spacing:0px;vertical-align:b=
+ottom;padding:24px 0px 20px"><a href=3D"https://e.newyorktimes.com/pub/cc?_=
+ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqaizcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0=
+ubqMILiWzaMzambVXtpKX%3DAUURRWY&amp;_ei_=3DEW2tf9zs59idfPO1Sc_9BbkOnJLEDMgl=
+jfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUShotiyQZ07Yol-J_mk.&amp;_di_=3D7o9=
+hb6d0434ss59pa1aq0e6e5nbrp2582jk1e3o394iopoefg9vg" target=3D"_blank" style=
+=3D"color:rgb(18,18,18);text-decoration-line:none"><img width=3D"320" borde=
+r=3D"0" alt=3D"PROCEED TO CHECKOUT &gt;" class=3D"m_-82896624629312783scale=
+" style=3D"display: block; width: 320px; max-width: 320px; height: auto; fo=
+nt-family: arial, sans-serif; font-size: 10px;"></a></td></tr></tbody></tab=
+le></td></tr></tbody></table><table width=3D"480" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" class=3D"m=
+_-82896624629312783scale" style=3D"border-collapse:collapse;border-spacing:=
+0px;min-width:480px;width:480px"><tbody><tr><td width=3D"100%" align=3D"cen=
+ter" class=3D"m_-82896624629312783outer" style=3D"border-collapse:collapse;=
+border-spacing:0px;padding:0px 80px"><table width=3D"100%" align=3D"center"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"border-collapse:collapse;border-spacing:0px"><tbody><tr><td width=3D"=
+100%" align=3D"center" valign=3D"bottom" style=3D"border-collapse:collapse;=
+border-spacing:0px;vertical-align:bottom;padding:0px"><a href=3D"https://e.=
+newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqaizcbuzb3NT49=
+Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURRAY&amp;_ei_=3DEW2tf9z=
+s59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUShotiyQZ0=
+7Yol-J_mk.&amp;_di_=3Drbs9ijnj3gt2nnkfmkanfedj7hvp3t50ivojvf5cs5pvvrbu4so0"=
+ target=3D"_blank" style=3D"color:rgb(18,18,18);text-decoration-line:none">=
+<img width=3D"320" border=3D"0" alt=3D"PROCEED TO CHECKOUT &gt;" class=3D"m=
+_-82896624629312783scale" style=3D"display: block; width: 320px; max-width:=
+ 320px; height: auto; font-family: arial, sans-serif; font-size: 10px;"></a=
+></td></tr></tbody></table></td></tr></tbody></table><table width=3D"480" a=
+lign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" class=3D"m_-82896624629312783scale" style=3D"border-collapse:co=
+llapse;border-spacing:0px;min-width:480px;width:480px"><tbody><tr><td width=
+=3D"100%" align=3D"center" class=3D"m_-82896624629312783outer" style=3D"bor=
+der-collapse:collapse;border-spacing:0px;padding:0px 80px"><table width=3D"=
+100%" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px"><t=
+body><tr><td width=3D"100%" align=3D"center" style=3D"border-collapse:colla=
+pse;border-spacing:0px;padding:20px 0px 0px"><table width=3D"100%" align=3D=
+"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px"><tbody><tr><td w=
+idth=3D"100%" align=3D"center" style=3D"border-collapse:collapse;border-spa=
+cing:0px;padding:0px"><table width=3D"100%" align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-co=
+llapse:collapse;border-spacing:0px"><tbody><tr><td width=3D"100%" align=3D"=
+center" style=3D"border-collapse:collapse;border-spacing:0px;color:rgb(0,0,=
+0);font-family:Arial,sans-serif;font-size:12px;line-height:17px;text-align:=
+center">Interested in Home Delivery?<br>Get 50% off print for your first ye=
+ar.=C2=A0<a href=3D"https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjk=
+PkSUAQGzcUy2ozdgqaizcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpK=
+X%3DAUURRCY&amp;_ei_=3DEW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJN=
+V9LMRQpn5EDljwu0svSlUShotiyQZ07Yol-J_mk.&amp;_di_=3D0dminsbicjerhsm1u8pqn0c=
+3i36rc26g0iqucgduua6qp65oj990" target=3D"_blank" style=3D"color:rgb(0,0,0);=
+font-weight:bold">See offer.</a></td></tr></tbody></table></td></tr></tbody=
+></table></td></tr></tbody></table></td></tr></tbody></table><table width=
+=3D"480" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" class=3D"m_-82896624629312783scale" style=3D"border-c=
+ollapse:collapse;border-spacing:0px;min-width:480px;width:480px"><tbody><tr=
+><td width=3D"100%" align=3D"center" class=3D"m_-82896624629312783outer" st=
+yle=3D"border-collapse:collapse;border-spacing:0px;padding:0px 80px"><table=
+ width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;border-spaci=
+ng:0px"><tbody><tr><td width=3D"100%" align=3D"center" valign=3D"bottom" st=
+yle=3D"border-collapse:collapse;border-spacing:0px;vertical-align:bottom;pa=
+dding:32px 0px 30px"><div style=3D"width:48px;border-top:1px solid rgb(0,0,=
+0);line-height:1px;margin:0px;padding:0px;height:1px"></div></td></tr></tbo=
+dy></table></td></tr></tbody></table><table width=3D"480" align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" clas=
+s=3D"m_-82896624629312783scale" style=3D"border-collapse:collapse;border-sp=
+acing:0px;min-width:480px;width:480px"><tbody><tr><td width=3D"100%" align=
+=3D"center" class=3D"m_-82896624629312783outer" style=3D"border-collapse:co=
+llapse;border-spacing:0px;padding:0px 80px"><table width=3D"100%" align=3D"=
+center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px"><tbody><tr><td wi=
+dth=3D"100%" align=3D"center" style=3D"border-collapse:collapse;border-spac=
+ing:0px;padding:0px 0px 20px"><table width=3D"100%" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+order-collapse:collapse;border-spacing:0px"><tbody><tr><td width=3D"100%" a=
+lign=3D"center" style=3D"border-collapse:collapse;border-spacing:0px;color:=
+rgb(0,0,0);font-family:Arial,sans-serif;font-size:16px;line-height:22px;tex=
+t-align:center;font-weight:bold">Discover everything we offer.</td></tr></t=
+body></table></td></tr></tbody></table></td></tr></tbody></table><table wid=
+th=3D"480" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" class=3D"m_-82896624629312783scale" style=3D"border=
+-collapse:collapse;border-spacing:0px;min-width:480px;width:480px"><tbody><=
+tr><td width=3D"100%" align=3D"center" class=3D"m_-82896624629312783outer" =
+style=3D"border-collapse:collapse;border-spacing:0px;padding:0px 80px"><tab=
+le width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;border-spa=
+cing:0px"><tbody><tr><td width=3D"100%" align=3D"center" valign=3D"bottom" =
+style=3D"border-collapse:collapse;border-spacing:0px;vertical-align:bottom;=
+padding:0px 0px 20px"><a href=3D"https://e.newyorktimes.com/pub/cc?_ri_=3DX=
+0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqaizcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILi=
+WzaMzambVXtpKX%3DAUURSRY&amp;_ei_=3DEW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0X=
+I3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUShotiyQZ07Yol-J_mk.&amp;_di_=3D2t9bt34djf=
+658n0lln9jd91ufnn3r7ft41n6otc971amsntc2erg" target=3D"_blank" style=3D"colo=
+r:rgb(18,18,18);text-decoration-line:none"><img width=3D"320" border=3D"0" =
+alt=3D"New reporting to consider." class=3D"m_-82896624629312783scale" styl=
+e=3D"display: block; width: 320px; max-width: 320px; height: auto; font-fam=
+ily: arial, sans-serif; font-size: 10px;"></a></td></tr></tbody></table></t=
+d></tr></tbody></table><table width=3D"480" align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" class=3D"m_-828966=
+24629312783scale" style=3D"border-collapse:collapse;border-spacing:0px;min-=
+width:480px;width:480px"><tbody><tr><td width=3D"100%" align=3D"center" cla=
+ss=3D"m_-82896624629312783outer" style=3D"border-collapse:collapse;border-s=
+pacing:0px;padding:0px 80px"><table width=3D"100%" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+order-collapse:collapse;border-spacing:0px"><tbody><tr><td width=3D"100%" a=
+lign=3D"center" valign=3D"bottom" style=3D"border-collapse:collapse;border-=
+spacing:0px;vertical-align:bottom;padding:0px 0px 20px"><a href=3D"https://=
+e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqaizcbuzb3NT=
+49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3DAUURSTY&amp;_ei_=3DEW2tf=
+9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUShotiyQ=
+Z07Yol-J_mk.&amp;_di_=3Dhevokn7rnfs9ptu60ajv65es9q6ucc778a9ri9f61e0qm54lp9d=
+g" target=3D"_blank" style=3D"color:rgb(18,18,18);text-decoration-line:none=
+"><img width=3D"320" border=3D"0" alt=3D"New games to play." class=3D"m_-82=
+896624629312783scale" style=3D"display: block; width: 320px; max-width: 320=
+px; height: auto; font-family: arial, sans-serif; font-size: 10px;"></a></t=
+d></tr></tbody></table></td></tr></tbody></table><table width=3D"480" align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" class=3D"m_-82896624629312783scale" style=3D"border-collapse:collap=
+se;border-spacing:0px;min-width:480px;width:480px"><tbody><tr><td width=3D"=
+100%" align=3D"center" class=3D"m_-82896624629312783outer" style=3D"border-=
+collapse:collapse;border-spacing:0px;padding:0px 80px"><table width=3D"100%=
+" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"border-collapse:collapse;border-spacing:0px"><tbody=
+><tr><td width=3D"100%" align=3D"center" valign=3D"bottom" style=3D"border-=
+collapse:collapse;border-spacing:0px;vertical-align:bottom;padding:0px 0px =
+20px"><a href=3D"https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkS=
+UAQGzcUy2ozdgqaizcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3=
+DAUURSWY&amp;_ei_=3DEW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9L=
+MRQpn5EDljwu0svSlUShotiyQZ07Yol-J_mk.&amp;_di_=3Dienvisfq9kotdr12isarq3f7l7=
+gdn7rne80hjnv3qcu0k8d00qd0" target=3D"_blank" style=3D"color:rgb(18,18,18);=
+text-decoration-line:none"><img width=3D"320" border=3D"0" alt=3D"New teams=
+ to follow." class=3D"m_-82896624629312783scale" style=3D"display: block; w=
+idth: 320px; max-width: 320px; height: auto; font-family: arial, sans-serif=
+; font-size: 10px;"></a></td></tr></tbody></table></td></tr></tbody></table=
+><table width=3D"480" align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" class=3D"m_-82896624629312783scale" styl=
+e=3D"border-collapse:collapse;border-spacing:0px;min-width:480px;width:480p=
+x"><tbody><tr><td width=3D"100%" align=3D"center" class=3D"m_-8289662462931=
+2783outer" style=3D"border-collapse:collapse;border-spacing:0px;padding:0px=
+ 80px"><table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse=
+;border-spacing:0px"><tbody><tr><td width=3D"100%" align=3D"center" valign=
+=3D"bottom" style=3D"border-collapse:collapse;border-spacing:0px;vertical-a=
+lign:bottom;padding:0px 0px 20px"><a href=3D"https://e.newyorktimes.com/pub=
+/cc?_ri_=3DX0Gzc2X%3DBQjkPkSUAQGzcUy2ozdgqaizcbuzb3NT49Y2iwjTnzdqBaySSzaUpz=
+b4br0ubqMILiWzaMzambVXtpKX%3DAUURSAY&amp;_ei_=3DEW2tf9zs59idfPO1Sc_9BbkOnJL=
+EDMgljfEiK0XI3NIco0BmvWJNV9LMRQpn5EDljwu0svSlUShotiyQZ07Yol-J_mk.&amp;_di_=
+=3Depl9v1i57h1jtlefk1pbnjf84cckr8j9nark31guhu76c14bqq3g" target=3D"_blank" =
+style=3D"color:rgb(18,18,18);text-decoration-line:none"><img width=3D"320" =
+border=3D"0" alt=3D"New stories to hear." class=3D"m_-82896624629312783scal=
+e" style=3D"display: block; width: 320px; max-width: 320px; height: auto; f=
+ont-family: arial, sans-serif; font-size: 10px;"></a></td></tr></tbody></ta=
+ble></td></tr></tbody></table><table width=3D"480" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" class=3D"m=
+_-82896624629312783scale" style=3D"border-collapse:collapse;border-spacing:=
+0px;min-width:480px;width:480px"><tbody><tr><td width=3D"100%" align=3D"cen=
+ter" class=3D"m_-82896624629312783outer" style=3D"border-collapse:collapse;=
+border-spacing:0px;padding:0px 80px"><table width=3D"100%" align=3D"center"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"border-collapse:collapse;border-spacing:0px"><tbody><tr><td width=3D"=
+100%" align=3D"center" style=3D"border-collapse:collapse;border-spacing:0px=
+;padding:20px 0px"><table width=3D"100%" align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-colla=
+pse:collapse;border-spacing:0px"><tbody><tr><td width=3D"100%" align=3D"cen=
+ter" style=3D"border-collapse:collapse;border-spacing:0px;color:rgb(0,0,0);=
+font-family:Arial,sans-serif;font-size:16px;line-height:22px;text-align:cen=
+ter"><span style=3D"font-weight:bold">Enjoy all of The Times:</span><br>$1/=
+week for your first year.</td></tr></tbody></table></td></tr></tbody></tabl=
+e></td></tr></tbody></table><table width=3D"480" align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" class=3D"m_-8=
+2896624629312783scale" style=3D"border-collapse:collapse;border-spacing:0px=
+;min-width:480px;width:480px"><tbody><tr><td width=3D"100%" align=3D"center=
+" class=3D"m_-82896624629312783outer" style=3D"border-collapse:collapse;bor=
+der-spacing:0px;padding:0px 80px"><table width=3D"100%" align=3D"center" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"border-collapse:collapse;border-spacing:0px"><tbody><tr><td width=3D"10=
+0%" align=3D"center" style=3D"border-collapse:collapse;border-spacing:0px;p=
+adding:0px"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"border-collapse:collapse;border-spacing:0px"><tbody=
+><tr><td align=3D"center" style=3D"border-collapse:collapse;border-spacing:=
+0px;width:143px;min-width:143px;height:40px;font-family:Helvetica,Arial,san=
+s-serif;background-color:rgb(0,0,0);color:rgb(255,255,255);font-weight:bold=
+;border-radius:4px;text-transform:uppercase;letter-spacing:0.5px;font-size:=
+12px"><a href=3D"https://e.newyorktimes.com/pub/cc?_ri_=3DX0Gzc2X%3DBQjkPkS=
+UAQGzcUy2ozdgqaizcbuzb3NT49Y2iwjTnzdqBaySSzaUpzb4br0ubqMILiWzaMzambVXtpKX%3=
+DAUURSCY&amp;_ei_=3DEW2tf9zs59idfPO1Sc_9BbkOnJLEDMgljfEiK0XI3NIco0BmvWJNV9L=
+MRQpn5EDljwu0svSlUShotiyQZ07Yol-J_mk.&amp;_di_=3D67td8mhj2ta6uejhe42ucctfso=
+7btbrmgpqujqqp9o25vmif23cg" target=3D"_blank" style=3D"color:rgb(255,255,25=
+5);text-decoration-line:none;padding:9px 4px;min-width:143px;display:block;=
+background:rgb(18,18,18);line-height:22px;border-radius:4px">SUBSCRIBE=C2=
+=A0NOW</a></td></tr></tbody></table></td></tr></tbody></table></td></tr></t=
+body></table><table width=3D"480" align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" class=3D"m_-8289662462931278=
+3scale" style=3D"border-collapse:collapse;border-spacing:0px;min-width:480p=
+x;width:480px"><tbody><tr><td width=3D"100%" align=3D"center" class=3D"m_-8=
+2896624629312783outer" style=3D"border-collapse:collapse;border-spacing:0px=
+;padding:0px 80px"><table width=3D"100%" align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-colla=
+pse:collapse;border-spacing:0px"><tbody><tr><td width=3D"100%" align=3D"cen=
+ter" style=3D"border-collapse:collapse;border-spacing:0px;padding:8px 0px 4=
+8px"><table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;b=
+order-spacing:0px"><tbody><tr><td width=3D"100%" align=3D"center" style=3D"=
+border-collapse:collapse;border-spacing:0px;color:rgb(18,18,18);font-family=
+:Arial,sans-serif;font-size:12px;line-height:17px;text-align:center">Cancel=
+ or pause=C2=A0anytime.</td></tr></tbody></table></td></tr></tbody></table>=
+</td></tr></tbody></table></div>
+
+--000000000000b34efb064696731e--

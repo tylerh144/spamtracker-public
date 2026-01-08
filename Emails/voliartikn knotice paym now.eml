@@ -1,0 +1,133 @@
+Delivered-To: zebraman@gmail.com
+Received: by 2002:a05:7001:148e:b0:7b1:5607:6143 with SMTP id bf14csp1809630mac;
+        Mon, 22 Dec 2025 19:57:06 -0800 (PST)
+X-Received: by 2002:a17:906:f597:b0:b7c:e3ad:cd17 with SMTP id a640c23a62f3a-b80371a2724mr1541789566b.32.1766462226705;
+        Mon, 22 Dec 2025 19:57:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1766462226; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VmG3MbY4BLZpQjUZs9pKo+mOn+mVyJnhAcpCzwJHL6LxhwvFyC3n1oghpsHb7aCgGh
+         X7dtuY6JcCqnAd7g1uzyjxJWiShNZ1+E+NzntfyGKq/VDfOJ9whfrrzXtJiXqz/FfXA2
+         OG2HlQ1eAGiNcTYqulJ4/cBEPSNg8eFhV8Kc37wuR/8sTP7Yu/uLSGR4xvFyfFd3Ibk4
+         WKBalpt3jILpPxOrexiY8TvZtdRP5WajQTveScTxXzkHlvbW6hLQd8uRtqvouNTywlnz
+         nGsqaUzIJGNpshgacQzoqep2wNfbs1TWKddM0Knlf73cY9412QYMC68NdYerZU75REPk
+         BGmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=Mvut6e4Bn7q9vYA1A93Hq0oajS4XPK30j0ZDl2v74Fc=;
+        fh=7PhbAWG0s+43eZigFXjibnEXLGR1ZaKQazvHTpBSPKA=;
+        b=Vn6mKfieA2SpCo6O3Fm/6u2MmvZuJsUJoEVLO4zxEmV+U3xoSuKSW2XSEvkSoSP1rp
+         o+48woSrHTMI+uWE3SEcIOfn0YE13o+pA611+l3E87/yy6i/Ap2pPj3r38lcc5J6KXAf
+         PpYeRqb6GGhFS56dOBO88isretj1yrxNkSWgdzHM85VSBIhsVUGQ8N4Tq68qN1vJ5ECQ
+         //ytBZgnIOtBLqgY14d83+YZ3/+z5TCaCu4usjNAMmme9cChvQtSO2YREpB3n05R/l5j
+         NLPQauWFZMldTnXjj5DlZQ4xU39X+CxgdVmB/IUpwNeJWk2QTRnTeQXvU61WnpOJS9Jz
+         HiFw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Q+H7WKn2;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <cornmflaek@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b802339befdsor278801366b.19.2025.12.22.19.57.06
+        for <zebraman@gmail.com>
+        (Google Transport Security);
+        Mon, 22 Dec 2025 19:57:06 -0800 (PST)
+Received-SPF: pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Q+H7WKn2;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766462226; x=1767067026; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Mvut6e4Bn7q9vYA1A93Hq0oajS4XPK30j0ZDl2v74Fc=;
+        b=Q+H7WKn2L7u56iMZer1HPfsMfvYefgI/+cGWoEAOaLBFcn9IuD6nHxFkePJE7Aa6C+
+         ViNAS7I/7X1I74g8Uu0DHHR1yjwM7+SH4ofboX9HZhn5XycsrHXshow0tx2l7McM7HIt
+         rrVbtteb5yw2CsGxDlaJ/+gYxm10nwbaVYadjSrxt6sy1rl9ycM8Y/LTAbQgEwPil+l8
+         AvK8ZZJioxlGuvNLr4jWHYZkyIiVsBeBJbikpmdMH7zdTAbX+Mca0NAn7Xw0Z3mdiNyp
+         YD/j2SKFcSKcpCztyFsqOSh1kXOUc1yKyoLZzxRWoXJNrXISlVzZcs9QjTQ3jrWgVKAk
+         b/WA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766462226; x=1767067026;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Mvut6e4Bn7q9vYA1A93Hq0oajS4XPK30j0ZDl2v74Fc=;
+        b=TI+7e2BZL2dcpHEOKrBYiQ0xOSSKz4nXm+Z4EWTQ4I56UbQLAcIJv+y7CkB4VPRfS9
+         ZMbreou5IhCs1mAqQgj/CIEZ2V15gFVTNxLTpWPAQHHMb0NXnS73o4QHJAQaHFuz/JFN
+         5kz9NMLorwzH5tW2XDhp8j8pfg9VYeCOK9k6SWujN0siVWYHCVv3BCzqEfIiWzLbmiqt
+         +M40TW50qJOp1+8+LBb9Ft5nzxGSrbyBJff6Buek+yJM42jInrkO1n9JDIF5zT3lm2hT
+         JWbut15tWlSw1FgAcVGLwmGe3vMCOVKdkcJNVw4EqWEaDgI0fsOoIPww3+34GGie4rCe
+         XJPg==
+X-Gm-Message-State: AOJu0YxBWrCYb0F9PIYnsuzvt84UlaEpSL4jFRGGNOkcqYsdZDyB2ZCo
+	Jk+AFe7XJ4wwMDelSjimWKYiRLR9oVl8UJmiZloMBetgs60AYmlnY5B2DsoVRWk+lOkgaJ7Arbk
+	lytWI2Ic4obZBaYAKQrO0iK2QCzZ6/cxNXd28
+X-Gm-Gg: AY/fxX6FGaEEfHDenSN4aFAQ1yh4WWxCMJKFrTZT1NlNYfRlnEN8UVKM6gZQzwM9CbT
+	KhTNaiU2lyAp2j2y/8nkp3/0Zx50F+S2wWE4lt4Epp3kJJoJt3y0r3Ds6qF8IdbQcxt8YOnAWmU
+	Qysf1tNqQeFnj5W83Qw2y6savxTmbcehR55JUVaAAKVD04VZ5adVg9Gq8jqSNetG0tNKA0ZG4uv
+	pQLc/3XSOiS5PNfnIn6v7xcwAzJsleDIbrH5reEwrBwlIP3vW3OqVEWGEO8K3DclrzGykpW7uPd
+	l3B75iKN48SZJmTbb7yOQp9QyTY2zA==
+X-Google-Smtp-Source: AGHT+IHle0L3SBPcCm0vaRubgkKwX34PE1oc27Ps+kqq23DLnBeo44lbJERrXIzFGHWBKK7c+WrQli1GpmKlQ2Ge55U=
+X-Received: by 2002:a17:907:e11a:b0:b80:3fff:1654 with SMTP id
+ a640c23a62f3a-b803fff1973mr927175866b.54.1766462225746; Mon, 22 Dec 2025
+ 19:57:05 -0800 (PST)
+MIME-Version: 1.0
+From: Dayal Pedaes <dayalpedaes@hotmail.com>
+Date: Mon, 22 Dec 2025 22:56:54 -0500
+X-Gm-Features: AQt7F2qIspfnGZZDU0qrXN7LcD7AonxXO6vsBfZdASh1zfOosheEiWFl0k-DzTw
+Message-ID: <CADqKssH_nBRXAGDo8rthMS3Q55eLDhTJPUVWTxtUOP_SaHEQfA@mail.gmail.com>
+Subject: voliartikn knotice paym now
+To: zebraman@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000798e2a0646968925"
+
+--000000000000798e2a0646968925
+Content-Type: text/plain; charset="UTF-8"
+
+Toll Violation Notice:
+
+This is your final notice regarding the unpaid toll balance on your
+account. You must settle the balance within the next 12 hours to avoid
+severe penalties.
+
+Unpaid Balance: $6.99
+Due Date: April 19, 2025
+
+Failure to pay within this time frame will result in the following:
+
+1.Immediate addition of late payment fees to your balance
+2.Suspension of your vehicle registration by the Department of Motor
+Vehicles (DMV)
+3.Collection actions, including a negative report to your credit file
+Please make your payment promptly to avoid these severe consequences and
+protect your driving privileges.
+
+Pay Now:
+
+https://e-zpassny.com-encft.vip/us
+
+If the link fails copy and paste it directly into your browser to complete
+your payment.
+
+This is your last opportunity. Pay now to avoid irreversible consequences.
+
+--000000000000798e2a0646968925
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Toll Violation Notice:<br><br>This is your final notice re=
+garding the unpaid toll balance on your account. You must settle the balanc=
+e within the next 12 hours to avoid severe penalties.<br><br>Unpaid Balance=
+: $6.99<br>Due Date: April 19, 2025<br><br>Failure to pay within this time =
+frame will result in the following:<br><br>1.Immediate addition of late pay=
+ment fees to your balance<br>2.Suspension of your vehicle registration by t=
+he Department of Motor Vehicles (DMV)<br>3.Collection actions, including a =
+negative report to your credit file<br>Please make your payment promptly to=
+ avoid these severe consequences and protect your driving privileges.<br><b=
+r>Pay Now:<br><br><a href=3D"https://e-zpassny.com-encft.vip/us">https://e-=
+zpassny.com-encft.vip/us</a><br><br>If the link fails copy and paste it dir=
+ectly into your browser to complete your payment.<br><br>This is your last =
+opportunity. Pay now to avoid irreversible consequences.</div>
+
+--000000000000798e2a0646968925--

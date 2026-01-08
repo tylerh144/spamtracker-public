@@ -1,0 +1,106 @@
+Delivered-To: zebraman@gmail.com
+Received: by 2002:a05:7001:148e:b0:7b1:5607:6143 with SMTP id bf14csp1815017mac;
+        Mon, 22 Dec 2025 20:12:12 -0800 (PST)
+X-Received: by 2002:a05:6102:3589:b0:5df:b4c8:b9cf with SMTP id ada2fe7eead31-5eb1a7c4683mr3730036137.24.1766463132451;
+        Mon, 22 Dec 2025 20:12:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1766463132; cv=none;
+        d=google.com; s=arc-20240605;
+        b=TJyCiIWfrWM5Umg4wFfVDcfpQ9/VI0Cx04+3Sm1kEHywqWxKYkzQwJgR5pGT+Tbv2w
+         /2t1a0GSFevhzTsvbTCnUd8xT1hiys8gpGLJGkYxESZjpaJJjVBOT60HlwtxoVIxu40Y
+         jfcz8HepJrBCN/rfPHw0b3W8f7tRzUW4uiTICPmZxeNj8FHZ1SYT2FKU7RZAuUVdLRFh
+         bQ3M6/rx4i2G9byB+ff4IJAOtB8bTv5wdXJ7IpVF3UWtHdYFkALHgUg0ktsFwsHFbrga
+         AhBaLD+CPpOe42Qc6DkvE4KnR4MSQK/33nMzBo+VFAUokMsJ+LLoqjXWUJqfHhJzU+/i
+         Y0Tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=KpmwMT1ZHh1sHZGvbAvyGTgnqjLSE20/rwGarf1mufU=;
+        fh=7PhbAWG0s+43eZigFXjibnEXLGR1ZaKQazvHTpBSPKA=;
+        b=EeTAiIzDHoWZ/58BCtbxANGFybCs3H5pOLGgEXiYbJpTPT8tXiaLIz+o1D+YWYisMF
+         N4sYGyS0CEal7JEFb+fIMQMg85XOZ2wq+p1pOM4lkCByo2Us1Iq4nmZp9l2vK/gTbrBO
+         GgyakfeWagO64orcbcMREm0BT6B7gwNesTfGXNyX+7XzXKOGH5Er5ecOOqWvKzc5MVy7
+         uwutQpRPC8lPabNR7N8rxra/M0svFJQ8CpM1x8tqRu6RgK/D0UoVu8PmlPoR8KbKwTrD
+         7ibtSIexo2/laBlEzvzcRorc6SGvRBjE+ShRZhX/Bzv4P2b9tFMPgCx4cqVYBVcbOLfX
+         KoTg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=W60etQS1;
+       spf=pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=anson.chen934@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <anson.chen934@gmail.com>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id ada2fe7eead31-5eb0577eed8sor1276078137.3.2025.12.22.20.12.12
+        for <zebraman@gmail.com>
+        (Google Transport Security);
+        Mon, 22 Dec 2025 20:12:12 -0800 (PST)
+Received-SPF: pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=W60etQS1;
+       spf=pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=anson.chen934@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766463132; x=1767067932; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=KpmwMT1ZHh1sHZGvbAvyGTgnqjLSE20/rwGarf1mufU=;
+        b=W60etQS1P59iDdb4kWXTLintFozSohznZs+s3NN3GZTW9Y67ryQXy4r6jQ33nDpSj3
+         FombfzdKyYCAFVlYQ2AuJbMWuGRgoEMNp08eJbMJ0cfKCf62Bgwz72P8jCpKbOji6HJX
+         ymgwpu69IfFSgVHUREvj0IXjkRfzsjeL4vnXh++bEQjEMOglvcL/hJrfOzdfrTUOU2DG
+         21tDEFQGVcWG66ECp64khTMqv3AgLiI3/jI2am7QfsGYFBZc72RyikM7rO5W5ehBqGuU
+         7QFX3EibQGNtpWY755k6oFpyWiEpGexbwzJakLshCVlqN/S1ADLwWfOHBMl+RNMFPowV
+         PY4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766463132; x=1767067932;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KpmwMT1ZHh1sHZGvbAvyGTgnqjLSE20/rwGarf1mufU=;
+        b=igfDa49R11RpOm4OeeryoMQ6fmptNSzImqb4KeA1LLS6OdKyKNUnBcJUPc4HXQEOsz
+         UkgGu9KV8T26DQt2+GYPNRUOq4lXbpkPG0C+nHSDtZlbiw2WoqUfvEBOogkznipexuac
+         Gqcmq8zpsbXIk6ZlDRFsbGnnxvbd07MNxsePaij4Uv8H9XZ9uIokJe0FxBSwZ2Kgzi94
+         nrcdQk7KZkdrQaa1Q6nroq+JILhc8TaiDwA8sGKblvG56Qg9CTiNTDSAIlMJFJHjVrhP
+         DXcnETElNrgUD1JV55hj65RFJ9KwX3Vj/g1eUIKR891UhpzNpTKbHue+KS49qxcJXUw7
+         8Y2w==
+X-Gm-Message-State: AOJu0YzoODTTvMXw1lvtxkh/X3z39G4dbSC86nLoMWOuNV/SRNDj4Kvb
+	HQcBQbNwr+7ILDHHXyUDZyFV7exXdtwBpenL8CWb31uwzsqlRNNgdqfEQ230av3nX9IvN2m0GMS
+	30kXHA++Z/TCKmFjiuRCppOnQR/gcPL+TM0tB
+X-Gm-Gg: AY/fxX7JRO1xT0M+8C8J/2u/YDTm8PYBLJ3kb+OpTXgl7UVZ0r5I0IfF2L3DvWsL/xy
+	UdX02okFN4Vz9w++P/6Ykxut0gXf1fBhk9DsLa1DMJa41DzDZLJU9tv/HOEHbi0UFpO+trb9j6w
+	l8rFD6C01PVJniYRTn1+niDOh/bsDqtAyVHwJM3TocnrDGQ0yauq6sHcm3IVatT3UwxtclPW87M
+	T2gdhC9vEFzn73hOgoSVg2Cpewqpo3bYWOK/osmrnbNZH46xGoDLsYA45mMQfVBBvWeP5n3Xa5P
+	76OQgzkbmUaP1gjRyiiiy4ju87TEqQ==
+X-Google-Smtp-Source: AGHT+IH98xFAGY1kUVU1XmpSqiuzXfx9mT4XRWeYOa3npe7zfCxkErpR4D9+2Opk6aFI9rhin2NN+HIzyl6Qa/7FHIU=
+X-Received: by 2002:a05:6102:f86:b0:5de:6dc:22be with SMTP id
+ ada2fe7eead31-5eb1a806721mr4006312137.36.1766463131823; Mon, 22 Dec 2025
+ 20:12:11 -0800 (PST)
+MIME-Version: 1.0
+From: Anson Chen <anson.chen934@gmail.com>
+Date: Mon, 22 Dec 2025 12:12:01 -0500
+X-Gm-Features: AQt7F2oD2E920AM7hDwpiz-SsGGeZkGAJWA-dbhV6Cg4yx9otSNWZ-_8krhUiSM
+Message-ID: <CANDF-Toaiipbd-Z0FRCptf-kNU2ekSK=q+zZ10UXEPvMa+HO=A@mail.gmail.com>
+Subject: RW office out for the holidays
+To: zebraman@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000007b31c5064696bf33"
+
+--0000000000007b31c5064696bf33
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+just letting you know that the reelworks office will be closed from dec 23
+to jan 4, change your alarms if you havent already
+
+it's gonna open again on jan 5 or something
+
+happy holidays tyler =E2=9D=84=EF=B8=8F=E2=9D=84=EF=B8=8F=F0=9F=8E=81
+
+--0000000000007b31c5064696bf33
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">just letting you know that the reelworks office will=C2=A0=
+be closed from dec 23 to jan 4, change your alarms if you havent already<di=
+v><br></div><div>it&#39;s gonna open again on jan 5 or something</div><div>=
+<br></div><div>happy holidays tyler=C2=A0=E2=9D=84=EF=B8=8F=E2=9D=84=EF=B8=
+=8F=F0=9F=8E=81</div></div>
+
+--0000000000007b31c5064696bf33--

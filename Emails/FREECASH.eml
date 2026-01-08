@@ -1,0 +1,104 @@
+Delivered-To: zebraman@gmail.com
+Received: by 2002:a05:7001:148e:b0:7b1:5607:6143 with SMTP id bf14csp1807181mac;
+        Mon, 22 Dec 2025 19:47:48 -0800 (PST)
+X-Received: by 2002:a17:907:940b:b0:b72:b433:1bb2 with SMTP id a640c23a62f3a-b8036ebd4d9mr1230317266b.7.1766461668743;
+        Mon, 22 Dec 2025 19:47:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1766461668; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NbVumfZH8KZBNYGVYoJqwlPq/SZfsd1XLfCmyQAHspcgbxcVYLr/swDeetDGckVfDK
+         JdLpC+Es5yKwyETcWnvPz/7e3hjS2gxfDqTyS/rRTvSPABy2Pq1c6fF6Qj0/1iXKbtR1
+         ve19Qn5jaKMJ5HBAre+9LWU0RdaR2fbYMyTjxNpiRWhAFz4xVFaMYrmIUsbF7tqVIGAJ
+         ltPnH1X6/p0E23xQOeez5EDvarmIzW1CrR1YoHfLWTf/13fORLWEkd0jo+FpGz13ELYf
+         R/rRRYhjPzmvn63H4GwJYPlECOtnTyjZFWN3qT8NsL97YRcLF8IGa0SEsxAje63YUOz7
+         0reA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=yun7DNqJMVdt52LU5udkxb8xUi/FislrYnDpRLCPu3g=;
+        fh=7PhbAWG0s+43eZigFXjibnEXLGR1ZaKQazvHTpBSPKA=;
+        b=BTAXqad7qF9QjlqG+K0EKygjtBdAYGCN+h4K8bcnO9xgF1uk51OkTyaazmu0WQH3zj
+         eD60D37FtVpzuBZtypuBfi0JIYt/wGQSXgMVnN06EkdNkhEiEAjAT9UZA6suadMCCOKr
+         o29rDaw6AiCIR3e3eQEOeeT/d47wEq1CK6kBXsrzunaN21pmeejvdANDFapIDUkGijBW
+         EDJOpX+H+hfBoE9eWUXDw+v5vn56kzQY1ttcFVjIYB8AqGAvr6/29Fv2kaM8ZATJybMC
+         5UicJNox9iE89as25lH/Y0vj28pgV2YnV6oUFen0Z0n1/2Q6LDrX77hrtIYamWaBUbh1
+         xNUw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=jxdBlk1R;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <cornmflaek@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b8023397af5sor316347166b.12.2025.12.22.19.47.48
+        for <zebraman@gmail.com>
+        (Google Transport Security);
+        Mon, 22 Dec 2025 19:47:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=jxdBlk1R;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766461668; x=1767066468; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=yun7DNqJMVdt52LU5udkxb8xUi/FislrYnDpRLCPu3g=;
+        b=jxdBlk1Rflu0EIrVRPT1V8SMs7WyFFCOeCxycbU66UC4nF2GWtAsV6VTDIE8Nqti2G
+         oS5ERiX5Ub1UNsw8y1s4jrK1qcORJVYYkSgCG2DfB7IzrQE0qmM15ELNyx3J2g5olIAr
+         LykVJfvwAeCiwTRi73W0X/nQVaGgFBV/e8C1yC0//a2XsyzOayclHy+u5YvqwKhZV1KC
+         DQSBe/heklSd25+uMQuvURVYbequ3LKjr4UuwN3Px/OlLhLuY7xg2pnWarnq7R5R1mok
+         9scnB5SSlfnDML7VWVU11GwM9rhBkSWIHTtwiuUYXkDve7uL154dt3yWigEvGi93BfM+
+         /Uqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766461668; x=1767066468;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yun7DNqJMVdt52LU5udkxb8xUi/FislrYnDpRLCPu3g=;
+        b=IM+e+51IDPq0oTmRmHgZlKoUdjrXzGsnr6tZq9n6BYtVifISRvvn0zZ0MXm9Zkmv8j
+         g1SXC0fNZWjTlk0JERT71gZ/Yybqt3QGjz6I2MylPC3joQSAiceQxQvwqRUmJC5oSZQO
+         3fDpqwgoe6Br2Y9fNGGA37Kbo1A40AEfBd9c4C7VKRQejLpNiaFhtzJlIxiXaghr/imY
+         1VqLu5PSSdoiRbR/LRBoum7w/Ae67iNyyB5t10E7KEEqwNmTDPrMQI0WPzMIXBEk6d9F
+         H5OLI2F8oA7y3m+qJg2TCbzln+Iu5XrvDUAoN3XcY7JuoTJB/Qv9/6NTpvuh8vX58GrG
+         daoA==
+X-Gm-Message-State: AOJu0Yxf3QKugpNPmvF8tFjFziS22rS0uRwpAVtQn4Cf334fDgdSvvGW
+	klxQb76gKKyuUAZMo4BA6GMotHznqhyo3StEp4bzKFN6UVcf290gvKcFkbnjTHcmwIvGLX4LNaY
+	NIMBNDO3fmSICmmK7tNCME/gwIlY/iK4PF6Rp
+X-Gm-Gg: AY/fxX6zwV/tSzaAxjTG7+HXCi5Dyc9+cQahPdAKSaEDzvwjpKdo/P+U/vCgiFh5uxx
+	YgGZOxjFZMB1abB7Vbk5pfTt70KXF2Fs/lYjUr20bden2xqTLuhl31PJOZ416XtUkZahdqKsIY8
+	EbaSDDho7eLVPInbmFVJsBuNpRfLAGoUQpekqBAsE9H9sXnFYz0kiKM/yKfuSwNXcdCe56GSdM6
+	6yDomDrah7L3FsfVnVDuSbIChftwz69v+S2moL2Xgxd2W1gV39/tNFmQ5EPy4YYXt3Nr8SkQuUF
+	Snxm99lrLCBUZBdy7lyHXwuUE6jUjA==
+X-Google-Smtp-Source: AGHT+IG9xPf+e2SdI9zWO8n0NBANUp2Akv6OpkcjCoU7PdjyCs73qV/vpiVPDUq+hFu9fGIiT+qNpm2T+eqnY8lB1IM=
+X-Received: by 2002:a17:907:948d:b0:b0e:d477:4972 with SMTP id
+ a640c23a62f3a-b8036f48992mr1499325266b.25.1766461667792; Mon, 22 Dec 2025
+ 19:47:47 -0800 (PST)
+MIME-Version: 1.0
+From: FREE MONEY <aqfmg10uohc@usa.com>
+Date: Mon, 22 Dec 2025 22:47:36 -0500
+X-Gm-Features: AQt7F2qRcNsT00SPPFkR_j-NcYmfyOYFhyDyS833mufTC1tGgM1Hu1y_1AKzmvc
+Message-ID: <CADqKssGZkU-CVo+n6jiRcW_AymzO_9MNuDyQW3GTnarVHno8gw@mail.gmail.com>
+Subject: FREECASH
+To: zebraman@gmail.com
+Content-Type: multipart/alternative; boundary="00000000000037db550646966815"
+
+--00000000000037db550646966815
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+https://freecash.com
+Sign Up to FREECASH & Recieve a $5 sign-up bonus
+=F0=9F=A4=91=F0=9F=A4=91
+
+(Click Link or copy and Paste link in Safari)
+
+--00000000000037db550646966815
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div><a href=3D"https://freecash.com">https://freecash.com=
+</a></div><div>Sign Up to FREECASH=C2=A0&amp; Recieve=C2=A0a $5 sign-up bon=
+us<br>=F0=9F=A4=91=F0=9F=A4=91<br></div><div><br></div><div>(Click Link or =
+copy and Paste link in Safari)</div></div>
+
+--00000000000037db550646966815--

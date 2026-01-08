@@ -1,0 +1,100 @@
+Delivered-To: zebraman@gmail.com
+Received: by 2002:a05:7001:148e:b0:7b1:5607:6143 with SMTP id bf14csp1814324mac;
+        Mon, 22 Dec 2025 20:09:52 -0800 (PST)
+X-Received: by 2002:a05:6102:4498:b0:5dd:83de:badc with SMTP id ada2fe7eead31-5eb1a84125dmr4228406137.38.1766462992595;
+        Mon, 22 Dec 2025 20:09:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1766462992; cv=none;
+        d=google.com; s=arc-20240605;
+        b=fx7jI64hpHjaSQXTAUYW5pGfk8s8E2LRfjfONQQzoQvr/a0bIYY+sCv8lst2PMUzgw
+         jSC0tNTtxK4xQQ5sV5EuKRZ9l22aJelT28gzMtDIhAli7qdDz0gA79BjM1MZ5exkSSDy
+         d7gPpBm9nKJTZj4FhM0HdkX6jBasVW9GzRe19GVXIfSdIVn2EOphjHSjXGPqLpkwlGby
+         koLwoUNrrJhwuQvW73T0uZqY/SXMof4Sc+IAMw2mqh4SlWVfJ7amHWcs/PmaR4DtMfol
+         dNS0DTPhRahAddz0gb/bDlpZglvH/FSv5Z1m4EM24P4xZv9TW29WYygRjIObnfRWpI/S
+         yC3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=/XUNcHbbleBFJPSkDCgS/gxntH7+ogPI/0iUIGuv9gs=;
+        fh=7PhbAWG0s+43eZigFXjibnEXLGR1ZaKQazvHTpBSPKA=;
+        b=BRIMyVttXy+uJ5o/Ec59GCeN/kOnR/PpQWhDTmTjRG6ApB86sOQC/iMiUo9kw5Rsg2
+         VVd88mlwm8awvqzTZg0GqRvyVTmfiSVZoM1rxVFl4rFmCyFDOgYqN9tkJocoEM/qAG4T
+         FJB60PJ1yibEZC5c3uyOTovRoi6kInSHgjBRXRj7d3lHuSbJ4sMYKVHVMIWZ88qyOoB4
+         EIQxyo21zICokTRf0uSI31MkyLW0z4ojUhntlV0WVDdTeq98MoabLcWPuO4Ps7+KWWmA
+         pSezFU+eluLfMf2gFIw8buc4NPQh+eft5boalhFKBT7+se/7wtOIL8tzpLTUE+fNNDEj
+         TeYQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=NB4Csemu;
+       spf=pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=anson.chen934@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <anson.chen934@gmail.com>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id ada2fe7eead31-5eb05465ed8sor970875137.0.2025.12.22.20.09.52
+        for <zebraman@gmail.com>
+        (Google Transport Security);
+        Mon, 22 Dec 2025 20:09:52 -0800 (PST)
+Received-SPF: pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=NB4Csemu;
+       spf=pass (google.com: domain of anson.chen934@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=anson.chen934@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766462992; x=1767067792; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=/XUNcHbbleBFJPSkDCgS/gxntH7+ogPI/0iUIGuv9gs=;
+        b=NB4CsemutXlCxHG9P1DQ4C5cXYLb37zWZyNxN8JzHt32NE0zXW1GuXlM7ZHdtkqe1u
+         FM3quVumFQxy5/mF8gBDb5+2xbgDBC6bgoueBBe320O7uDdVRGmTV6T7ZX4e1In0r0dm
+         Pd3/ZskmYV8zcIgxU/84OFEgQJpi7WS/ssS65uCVsiOSVDu+e9F8MmCfeQaw2oly3rtP
+         wUXXXtEntjUV0X6f5RCWTzA9NDvpG/j9yj8AJHkDtYGwET0/6EMuUMIENTYBN+OajfkA
+         zsSqKSwBpchKUf6nwOqHzgujXlivcTJJ5DFuIt1h8JQtphCaFO0MTrYCfWcGO4doRWnf
+         /75Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766462992; x=1767067792;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/XUNcHbbleBFJPSkDCgS/gxntH7+ogPI/0iUIGuv9gs=;
+        b=M484SxfX/o/YJooDher8hmPks/af4/adqslyWQAgXT9ET/g2NrQOYVCVkei6UvEgvI
+         OM8LdfltANLHrG3E7C34zSaNWAUb/G/39DD310YljNIXjxUcuq406tqNFBECbXjY8rDD
+         E2g/EYBpZoR2rCmMT39OX7/RqwOx9Y6uZ/rIWPVgtxthGJNTIOgFbkZ6l86NzJ1HKtOo
+         yer6wWXHq+XPcrfbx5p+zYzGDC4T33pXbXcb7qdzUg+I9IjIMe5j80mXBiXGb3dvh6ve
+         JkLQVmGDIG0YepZ3lhNZLLp2fh0cGrHgUC/ru/fgudZ1DERtyl2FyQ8I+wG9kmyjVxNC
+         9wiA==
+X-Gm-Message-State: AOJu0Yz5y7Ayla5ERIdBQ/yc7tLTlzW3RFby735GUBM5XLyF21C+bc2h
+	7BP6uLaseetoOjuYX9b0RKB354YwWPhagJD3u4MHtsEbIsSTlESrNBg7DqT+XiVMLoZkT2Bb5p+
+	86Oz2txcGDwH18tNHCNhJbnNreG/0dO/q5lPU
+X-Gm-Gg: AY/fxX4Xkf22bWdQgDhhmJ6BvQQ64JECGJLJ3e2KqziqF1Z9aokfI4gk0qWPqCEBU5A
+	d6sF19Bp5EivkYBfJAnaTUQPxptIidMyup5wfC0s14FzRYMRhxQVfQyVFCyVFXwcTEPWL0uqvfM
+	AeHjCc9yqokruLwIxT+rtYefjI/JVrhmNPhNXUtYBAAEw0yz1mToo5QP7OY9e+9ZLjlkjEUEfdP
+	bAy/NAyLC6U+QVkdkbZJjZQcJ36CPYosi8BiDXaE53ewp4WI1rkbvyvQiWPVT8Tc5jCoQl94p2c
+	XjxpBP1War/qmacENgNK0J8Zq0b15Q==
+X-Google-Smtp-Source: AGHT+IEaVX7U1MAmyr8gBvgnyJ8T4wvj3i8OmqUrGeIQs/VM3cR52Rcj9Hzh/aQSeeNeC6YFFmldjayJeX4zZrObdEU=
+X-Received: by 2002:a05:6102:6a8c:b0:5e5:6360:1f63 with SMTP id
+ ada2fe7eead31-5eb1a8423b4mr3365643137.40.1766462992043; Mon, 22 Dec 2025
+ 20:09:52 -0800 (PST)
+MIME-Version: 1.0
+From: Anson Chen <anson.chen934@gmail.com>
+Date: Mon, 22 Dec 2025 12:09:41 -0500
+X-Gm-Features: AQt7F2rMDk76EqDa7_ju9pGEcAt2mnlxy6ohdIIW9XLjOVgJ9aIuNHlfihK1wgY
+Message-ID: <CANDF-TrVLuDx-eogGhK3q1LA2BS51gpEwMHOFYBsDrZ=Qe8pEw@mail.gmail.com>
+Subject: check your zelle stuff real quick
+To: zebraman@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000265093064696b7f4"
+
+--000000000000265093064696b7f4
+Content-Type: text/plain; charset="UTF-8"
+
+yo dawg can you check your chase thingy to see if you got my zelle payment
+
+just trying to make sure you got the franklins i owed you
+
+--000000000000265093064696b7f4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">yo dawg can you check your chase thingy to see if you got =
+my zelle payment=C2=A0<br><br>just trying to make sure you got the franklin=
+s i owed you</div>
+
+--000000000000265093064696b7f4--

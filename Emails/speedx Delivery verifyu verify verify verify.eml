@@ -1,0 +1,103 @@
+Delivered-To: zebraman@gmail.com
+Received: by 2002:a05:7001:148e:b0:7b1:5607:6143 with SMTP id bf14csp1811455mac;
+        Mon, 22 Dec 2025 20:01:48 -0800 (PST)
+X-Received: by 2002:a17:907:e106:b0:b80:4103:537e with SMTP id a640c23a62f3a-b80410355bcmr848970566b.53.1766462508693;
+        Mon, 22 Dec 2025 20:01:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1766462508; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hM+eiHRa9y1ltAZTHpEYbHUJCm8CTaLfL57XXVnkan9rF19VxhD4Bn7myALvYQETqu
+         z1V9cvAmwP0nYDl2nYvyI0R/t/uWpTgAJD7lpQyXSGaEFkskBsKy1s4vMQ1CW6OMLU5q
+         rusOB9BOdB4Mh2M6VXtZBh72mBDCSXl73FDkKVjPczOZBJlnDt7QT4eLHS6qjy2q5+xO
+         mBUhY1SbA+r555Ch+06PB/4P2batcyNvA54CUmmRyrhOqRObLKH+5uAOTuddVJNK9vJj
+         9wzO4AtsLqIroDcg0gK6TdUmIlP2P/3VOUPhYbaiD3raYNj6mkHZZn5ERax2uR8CyxKf
+         /C3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=YYlOwhMI2kFyfeBFLgTeoV+QJn7H4qAwk60E3ABCw54=;
+        fh=7PhbAWG0s+43eZigFXjibnEXLGR1ZaKQazvHTpBSPKA=;
+        b=j2q1b+AjZJ6oUXQFT69HmsV/N5FzIfbxY26TojjftNfBy/N2Ne0EzfjhmfiQtKC6NX
+         Z+8yl4rDaIc5U80uuoDNpH0L+n37NZU8luMM85EG+COK+N1q5MMYwBeDSWF6zo0Hdkcq
+         tIdOOGsrej4SOh530spo35135HiBJhVg3cBhTJMqFWWtapV2LKqh16Sqm2xa+gVQVKyJ
+         QGTYBB03HVSNzAdT1oaRwhi7SyfY2bzWcZuFOQrvnrnVpKxtyHhScUNNO3rEHehWXWz/
+         LPkJgT9ZjaTmLEnFLba/xj9CxeiQswFWBGD5RvJ5F6fJ5olJZ2CgW4gDWpVSu5mhYtBw
+         bmVA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=aGEXIySt;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <cornmflaek@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b8022f8dc82sor291889366b.4.2025.12.22.20.01.48
+        for <zebraman@gmail.com>
+        (Google Transport Security);
+        Mon, 22 Dec 2025 20:01:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=aGEXIySt;
+       spf=pass (google.com: domain of cornmflaek@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cornmflaek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766462508; x=1767067308; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=YYlOwhMI2kFyfeBFLgTeoV+QJn7H4qAwk60E3ABCw54=;
+        b=aGEXIySt1/LLu0mmyOCZIy4Q7KKEi/MOmW59FRCMSRPnwFD41msCFICVxaj0bN2Puc
+         1zStKBEYt/2f4c6YufbIkiXH2iydakIH2Bh4/M3LPjdvT7LCo+MFtXvWYEgPbnVWHgXl
+         bOOrRWWoP5mWj0SvaJVRiZZypM6DBw1ZacDGkuSAF/rb9rL1J7twjqt6jtHKmyfXmMIy
+         WjuY4xqvCR2ZzvzmAS+mZj7wtRlf4t1Qa2/L0n8FHJukx2yHtbO9M8/YeaBhosNto1Gw
+         sxw8qcXGaWPD+0Sxa/ANIedT+4fLadXAGM/5gVIPyoOJBFtZnU0HwS7ZfE0KUAlrPQ5u
+         I0VA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766462508; x=1767067308;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YYlOwhMI2kFyfeBFLgTeoV+QJn7H4qAwk60E3ABCw54=;
+        b=Lcau56uCebDk8U26PeX2nsuD5vf0bdauvh56Q/Il3YUCSEPXQ/YIV4AZmcc+pAUqrD
+         rCdhF4ocQt9HUchHxDAtS6jlN17WNm6V53w2AyLJxzpmt9ESdiTZV9cEWzFQDgo4TfIE
+         3H8Ksu9REL1CCDV2txIBxRN19+lyclYCLY3DQKXVDOAMZYGB2Xt185QPQYX2iw/jTXir
+         66OzwoqTRVqyJuLNLU6AV8IF8k7xIpNwtNiepfkIHN00n42Fwf/6huRVLtHUjsaNDNOy
+         HThLFYmhSLLCfW4miVfZjrKZKd1HHDUd5DoBpoU9Fmh4sonZvyhwS19AGS40BpCcMdIu
+         ZgFQ==
+X-Gm-Message-State: AOJu0YyypUuyOEuZIO2FCIt6O3p8XrwltlbNNoMCXlmd1TCpTNNeQ33A
+	2qKIsgvMsXmkbZ/tzzu5bC7qoUINhBpI9yCPFkQmOjY9B7M3deP0ljlG1Ldkz3X5wKeF24Ao9NO
+	jBxrtelZbj38QTIIf5Cz2IEoSOHdXvfB5q6Iz
+X-Gm-Gg: AY/fxX72/Sgu1DpeoPU/+cfNZFfuuNjTlTLAVFudcf4voHdHPz4c1qRNuuBbKpkXwad
+	+iaZgen6RVYLwnQzqHfnUb2vIkvulZZIGRd+qJVNebZxDJXtMe07sEb7Q3LCK8pMRz53w1Fckec
+	inVfCL4uZ+JdmieuF1nJIYenGF/gUjylJgYuTk2Qh9i+nTl3dZQ1tSakUAWfylkkmdA53BdYUDL
+	YC0JPuysl35FeNA28SO5WVcz1XN9+I0WgCx4UgcDevInWh1laelMft2IfdhTH3fet8gCTR8Iyp+
+	a70Bqu96zYKcjM07dFJHWQQCkooM5Q==
+X-Google-Smtp-Source: AGHT+IEga/IdC/wiGTBshOUZxh8LfFfhfPVuN9B6DMqHNOkbwEkpsz2lQxd2fJ6K0vYu+fZCXTLa3lg1ogd6StBzH/Y=
+X-Received: by 2002:a17:907:608d:b0:b76:f57a:b0a7 with SMTP id
+ a640c23a62f3a-b803705129emr1567503366b.31.1766462507747; Mon, 22 Dec 2025
+ 20:01:47 -0800 (PST)
+MIME-Version: 1.0
+From: Apple Support <agnes19880717@thousandstarsasia.appleaccount.com>
+Date: Mon, 22 Dec 2025 23:01:36 -0500
+X-Gm-Features: AQt7F2rts8IkWOvVsRlqGTLjTIX8rmZ1kglCq5qsqP5B8NzLPVenn4vURP2Y0yU
+Message-ID: <CADqKssHV=r2+vOZre5Rh1fvOfE7eWi=qh=UQvaCrWi29wosy1w@mail.gmail.com>
+Subject: speedx Delivery verifyu verify verify verify
+To: zebraman@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000488e4b0646969af2"
+
+--000000000000488e4b0646969af2
+Content-Type: text/plain; charset="UTF-8"
+
+Hello from SpeedX!. Your order will be delivered soon.The  estimated
+Delivery is on 01/26/2026.Visit
+https://tracking.speedx.io/update-address/SPX1YB056732768600 to verify your
+delivery address and see more details.
+
+--000000000000488e4b0646969af2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hello from SpeedX!. Your order will be delivered soon.The=
+=C2=A0 estimated Delivery is on 01/26/2026.Visit <a href=3D"https://trackin=
+g.speedx.io/update-address/SPX1YB056732768600">https://tracking.speedx.io/u=
+pdate-address/SPX1YB056732768600</a> to verify your delivery address and se=
+e more details.=C2=A0</div>
+
+--000000000000488e4b0646969af2--
