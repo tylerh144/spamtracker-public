@@ -132,7 +132,7 @@ for eml in emailData:
         matchlist = re.findall(word, eml.body, flags=re.IGNORECASE) + re.findall(word, eml.subject, flags=re.IGNORECASE)
         sc+=len(matchlist)
     
-    wc = len(re.findall("\s", eml.body))
+    wc = len(re.findall("\\s", eml.body))
 
     #ratio of spam keywords to words
     ratio=sc/wc
@@ -152,7 +152,7 @@ for eml in emailData:
 
 
     #check hour sent
-    hour = int(re.search("\d+(?=:)",  eml.date).group())
+    hour = int(re.search("\\d+(?=:)",  eml.date).group())
     if hour < 6 or hour > 20:
         eml.risk+=20
         eml.date = RED + eml.date + RESET
